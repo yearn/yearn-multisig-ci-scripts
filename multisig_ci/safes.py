@@ -13,6 +13,8 @@ elif network.chain.id == 4:
     address = os.getenv("RIN_SAFE_ADDRESS")
 elif network.chain.id == 42161:
     address = os.getenv("ARB_SAFE_ADDRESS")
+elif network.chain.id == 100:
+    address = os.getenv("GNOSIS_SAFE_ADDRESS")
 else:
     address = os.getenv("ETH_SAFE_ADDRESS")
 
