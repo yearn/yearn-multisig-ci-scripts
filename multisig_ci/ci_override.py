@@ -22,8 +22,17 @@ gnosis_frontend_urls = {
         137: 'https://gnosis-safe.io/app/matic:{0}/transactions/queue',
         250: 'https://safe.fantom.network/#/safes/{0}/transactions',
         42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/queue'
+    },
+    'yearn': {
+        1: 'http://mainnet.gnosis.yearn.tools/eth:{0}/transactions/queue',
+        4: 'http://mainnet.gnosis.yearn.tools/rin:{0}/transactions/queue',
+        56: 'http://mainnet.gnosis.yearn.tools/bsc:{0}/transactions/queue',
+        100: 'http://mainnet.gnosis.yearn.tools/xdai:{0}/transactions/queue',
+        137: 'http://mainnet.gnosis.yearn.tools/matic:{0}/transactions/queue',
+        42161: 'http://mainnet.gnosis.yearn.tools/arb1:{0}/transactions/queue'
     }
 }
+
 
 class DelegateSafe(ApeSafe):
     def __init__(self, address, base_url=None, multisend=None):
@@ -32,6 +41,7 @@ class DelegateSafe(ApeSafe):
         """
         backend_urls = {
             'gnosis': transaction_service,
+            'yearn': {1: 'https://safe-transaction.mainnet.gnosis.yearn.tools/'}
         }
 
         # default to gnosis if we don't have a yearn version
