@@ -1,0 +1,5 @@
+*.gz
+*.whl
+.hypothesis
+dist
+__pycache__

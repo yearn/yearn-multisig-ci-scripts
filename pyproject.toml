@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "multisig_ci"
-version = "0.0.4"
+version = "0.0.5-beta3"
 description = "Gnosis safe ci scripts."
 authors = ["kx9x <kx9x@protonmail.com>"]
 license = "AGPLv3"
