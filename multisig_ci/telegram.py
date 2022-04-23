@@ -1,11 +1,12 @@
 import requests
 
-SEND_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/sendmessage?chat_id={1}&text={2}"
-PIN_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/pinchatmessage?chat_id={1}&message_id={2}"
+SEND_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/sendmessage"
+PIN_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/pinchatmessage?chat_id={1}&message_id={2}&disable_web_page_preview=true"
 
 def send_message(bot_token, chat_id, chat_message):
-    uri = SEND_MESSAGE_FORMAT.format(bot_token, chat_id, chat_message)
-    res = requests.get(uri)
+    print(chat_message)
+    uri = SEND_MESSAGE_FORMAT.format(bot_token)
+    res = requests.post(uri, data={'chat_id':chat_id, 'text': chat_message, 'disable_web_page_preview': True, 'parse_mode': 'markdown'})
     print(res)
     if res.ok:
         return res.json(), res.ok
