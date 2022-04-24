@@ -1,7 +1,9 @@
 import os
+from copy import copy
 from ape_safe import ApeSafe, transaction_service
-from brownie import accounts, network
+from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
+from eth_abi import encode_abi
 from typing import Optional, Union
 from brownie.network.account import LocalAccount
 
@@ -85,7 +87,41 @@ class DelegateSafe(ApeSafe):
             events = False
             call_trace = False
 
-        return super().preview(safe_tx, events=events, call_trace=call_trace, reset=reset)
+        """
+        Dry run a Safe transaction in a forked network environment.
+        """
+        if reset:
+            chain.reset()
+
+        tx = copy(safe_tx)
+        safe = Contract.from_abi('Gnosis Safe', self.address, self.get_contract().abi)
+        # Replace pending nonce with the subsequent nonce, this could change the safe_tx_hash
+        tx.safe_nonce = safe.nonce()
+        # Forge signatures from the needed amount of owners, skip the one which submits the tx
+        # Owners must be sorted numerically, sorting as checksum addresses may yield wrong order
+        threshold = safe.getThreshold()
+        sorted_owners = sorted(safe.getOwners(), key=lambda x: int(x, 16))
+        owners = [accounts.at(owner, force=True) for owner in sorted_owners[:threshold]]
+        for owner in owners:
+            safe.approveHash(tx.safe_tx_hash, {'from': owner})
+
+        # Signautres are encoded as [bytes32 r, bytes32 s, bytes8 v]
+        # Pre-validated signatures are encoded as r=owner, s unused and v=1.
+        # https://docs.gnosis.io/safe/docs/contracts_signatures/#pre-validated-signatures
+        tx.signatures = b''.join([encode_abi(['address', 'uint'], [str(owner), 0]) + b'\x01' for owner in owners])
+        payload = tx.w3_tx.buildTransaction({'gas': str(chain.block_gas_limit)})
+        receipt = owners[0].transfer(payload['to'], payload['value'], gas_limit=payload['gas'], data=payload['data'])
+
+        if 'ExecutionSuccess' not in receipt.events:
+            receipt.info()
+            receipt.call_trace(True)
+            raise ApeSafe.ExecutionFailure()
+        if events:
+            receipt.info()
+        if call_trace:
+            receipt.call_trace(True)
+        return receipt
+
 
     def get_signer(self, signer: Optional[Union[LocalAccount, str]] = None) -> LocalAccount:
         if self.is_ci:
