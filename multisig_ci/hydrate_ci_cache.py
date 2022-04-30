@@ -101,7 +101,6 @@ solc_release_versions = [
 
 home_directory = os.environ.get("HOME")
 
-
 def hydrate_compiler_cache():
     for vyper_release in vyper_releases:
         mod = vyper_release.index("+") if "+" in vyper_release else vyper_release.index(".linux")
