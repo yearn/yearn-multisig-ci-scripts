@@ -3,6 +3,8 @@ import os, stat
 import multisig_ci.ci_override
 
 vyper_releases = [
+    "https://github.com/vyperlang/vyper/releases/download/v0.3.3/vyper.0.3.3+commit.48e326f0.linux"
+    "https://github.com/vyperlang/vyper/releases/download/v0.3.2/vyper.0.3.2+commit.3b6a4117.linux"
     "https://github.com/vyperlang/vyper/releases/download/v0.3.1/vyper.0.3.1.linux",
     "https://github.com/vyperlang/vyper/releases/download/v0.3.0/vyper.0.3.0+commit.8a23feb.linux",
     "https://github.com/vyperlang/vyper/releases/download/v0.2.16/vyper.0.2.16+commit.59e1bdd.linux",
@@ -25,6 +27,8 @@ vyper_releases = [
 solc_url_prefix = "https://solc-bin.ethereum.org/linux-amd64/solc-linux-amd64-"
 
 solc_release_versions = [
+    "v0.8.13+commit.abaa5c0e"
+    "v0.8.12+commit.f00d7308"
     "v0.8.11+commit.d7f03943",
     "v0.8.10+commit.fc410830",
     "v0.8.9+commit.e5eed63a",
