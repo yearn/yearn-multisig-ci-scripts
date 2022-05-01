@@ -79,7 +79,7 @@ class DelegateSafe(ApeSafe):
 
         if self.is_ci and self.is_send:
             with open(os.getenv('GITHUB_ENV'), 'a') as f:
-                f.write("NONCE={0}".format(str(safe_tx.safe_nonce)))
+                f.write("NONCE={0}\n".format(str(safe_tx.safe_nonce)))
             exit(0)
 
     def preview(self, safe_tx: SafeTx, events=True, call_trace=False, reset=True):
@@ -126,7 +126,7 @@ class DelegateSafe(ApeSafe):
     def get_signer(self, signer: Optional[Union[LocalAccount, str]] = None) -> LocalAccount:
         if self.is_ci:
             with open(os.getenv('GITHUB_ENV'), 'a') as f:
-                f.write("SAFE_LINK={0}".format(str(self.frontend_url.format(self.address))))
+                f.write("SAFE_LINK={0}\n".format(str(self.frontend_url.format(self.address))))
 
             if self.is_send:
                 key = os.environ.get("PRIVATE_KEY")
