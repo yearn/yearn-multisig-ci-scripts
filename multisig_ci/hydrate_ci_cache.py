@@ -1,8 +1,5 @@
 import requests
 import os, stat
-from brownie import Contract, network, exceptions
-from ape_safe import ApeSafe
-import time
 import multisig_ci.ci_override
 
 vyper_releases = [
