@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.4...v0.1.5) (2022-05-01)
+
+
+### Bug Fixes
+
+* upload to /upload instead of /simple ([2e2ffc6](https://github.com/yearn/yearn-multisig-ci-scripts/commit/2e2ffc635d355b5098d407aeb0deea8e0ec625be))
+
 ### [0.1.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.3...v0.1.4) (2022-05-01)
 
 
