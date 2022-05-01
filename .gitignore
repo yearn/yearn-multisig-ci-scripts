@@ -3,3 +3,4 @@
 .hypothesis
 dist
 __pycache__
+.vscode
