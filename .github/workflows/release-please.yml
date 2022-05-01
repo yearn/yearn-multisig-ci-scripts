@@ -39,11 +39,8 @@ jobs:
 
       - name: Poetry config
         run: |
-          poetry config repositories.test-pypi https://test.pypi.org/legacy/
-          poetry config pypi-token.test-pypi ${{ secrets.TEST_PYPI_API_TOKEN }}
-          poetry config repositories.pypi https://pypi.org/upload
           poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Publish distribution 📦 to PyPI
         run: |
-          poetry publish -r pypi
+          poetry publish
