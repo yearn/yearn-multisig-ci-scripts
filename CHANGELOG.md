@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.3...v0.1.4) (2022-05-01)
+
+
+### Bug Fixes
+
+* add .vscode to gitignore ([255de3a](https://github.com/yearn/yearn-multisig-ci-scripts/commit/255de3a5d54ed761bf323505dede021287bc5f4a))
+
 ### [0.1.3](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.2...v0.1.3) (2022-05-01)
 
 
