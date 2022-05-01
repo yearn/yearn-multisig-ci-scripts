@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.1...v0.1.2) (2022-05-01)
+
+
+### Bug Fixes
+
+* use poetry ([f6cdb48](https://github.com/yearn/yearn-multisig-ci-scripts/commit/f6cdb48b5531df1883cef422474be2323b454b19))
+
 ### [0.1.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.0...v0.1.1) (2022-05-01)
 
 
