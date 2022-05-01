@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.0...v0.1.1) (2022-05-01)
+
+
+### Bug Fixes
+
+* remove unneeded imports ([0365946](https://github.com/yearn/yearn-multisig-ci-scripts/commit/0365946560410280398711f1b92e1a8100a7ad37))
+
 ## [0.1.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.0.3...v0.1.0) (2022-05-01)
 
 
