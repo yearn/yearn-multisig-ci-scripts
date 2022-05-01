@@ -34,20 +34,20 @@ jobs:
           --user
 
       - name: Build with poetry
-        run: >-
+        run: |
           poetry build
 
       - name: Poetry config
-        run: >-
+        run: |
           poetry config repositories.test-pypi https://test.pypi.org/legacy/
           poetry config pypi-token.test-pypi ${{ secrets.TEST_PYPI_API_TOKEN }}
           poetry config repositories.pypi https://pypi.org/simple/
           poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Publish distribution 📦 to Test PyPI
-        run: >-
+        run: |
           poetry publish -r test-pypi
 
       - name: Publish distribution 📦 to PyPI
-        run: >-
+        run: |
           poetry publish -r pypi
