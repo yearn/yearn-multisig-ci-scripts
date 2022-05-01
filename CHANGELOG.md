@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.3](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.2...v0.1.3) (2022-05-01)
+
+
+### Bug Fixes
+
+* syntax error in yml ([d1a5391](https://github.com/yearn/yearn-multisig-ci-scripts/commit/d1a5391da174acf1e73053e21b6f958a7c6e758e))
+
 ### [0.1.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.1...v0.1.2) (2022-05-01)
 
 
