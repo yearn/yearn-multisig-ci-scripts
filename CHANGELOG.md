@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.6...v0.1.7) (2022-05-04)
+
+
+### Bug Fixes
+
+* escape telegram messages ([600d66f](https://github.com/yearn/yearn-multisig-ci-scripts/commit/600d66f3637c910dd955fc45cdd92b47129b334c))
+
 ### [0.1.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.5...v0.1.6) (2022-05-01)
 
 
