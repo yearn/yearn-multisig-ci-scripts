@@ -80,6 +80,8 @@ class DelegateSafe(ApeSafe):
         if self.is_ci and self.is_send:
             with open(os.getenv('GITHUB_ENV'), 'a') as f:
                 f.write("NONCE={0}\n".format(str(safe_tx.safe_nonce)))
+            with open(os.path.join(home_directory, "nonce.txt"), "w") as f:
+                f.write(str(safe_tx.safe_nonce))
             exit(0)
 
     def preview(self, safe_tx: SafeTx, events=True, call_trace=False, reset=True):
@@ -127,6 +129,9 @@ class DelegateSafe(ApeSafe):
         if self.is_ci:
             with open(os.getenv('GITHUB_ENV'), 'a') as f:
                 f.write("SAFE_LINK={0}\n".format(str(self.frontend_url.format(self.address))))
+            
+            with open(os.path.join(home_directory, "safe.txt"), "w") as f:
+                f.write(str(self.frontend_url.format(self.address)))
 
             if self.is_send:
                 key = os.environ.get("PRIVATE_KEY")
