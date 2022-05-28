@@ -1,15 +1,5 @@
 # Changelog
 
-### [0.1.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.4...v0.1.5) (2022-05-28)
-
-
-### Bug Fixes
-
-* also write files ([20349c2](https://github.com/yearn/yearn-multisig-ci-scripts/commit/20349c25c9a93a263f6fa1bb11f84d32bd0ffd2c))
-* escape telegram messages ([6e68565](https://github.com/yearn/yearn-multisig-ci-scripts/commit/6e685659158ca16d549656dd1f175de48100c91e))
-* just publish, don't configure ([f0b2f5b](https://github.com/yearn/yearn-multisig-ci-scripts/commit/f0b2f5b8dfea31507a0e7a1f748be5357c50d15b))
-* upload to /upload instead of /simple ([2e2ffc6](https://github.com/yearn/yearn-multisig-ci-scripts/commit/2e2ffc635d355b5098d407aeb0deea8e0ec625be))
-
 ### [0.1.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.6...v0.1.7) (2022-05-04)
 
 
