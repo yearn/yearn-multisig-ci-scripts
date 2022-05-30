@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.2.0...v0.3.0) (2022-05-30)
+
+
+### Features
+
+* upgrade dependencies ([df76c7a](https://github.com/yearn/yearn-multisig-ci-scripts/commit/df76c7a19489669a20e6f30754ab981f7b9c74e4))
+
 ## [0.2.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.1.5...v0.2.0) (2022-05-28)
 
 
