@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.0...v0.3.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* turn off max gas ([b439f81](https://github.com/yearn/yearn-multisig-ci-scripts/commit/b439f81ffb8e100ccabbddda795795b55673b2e8))
+
 ## [0.3.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.2.0...v0.3.0) (2022-05-30)
 
 
