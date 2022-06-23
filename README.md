@@ -1,4 +1,4 @@
-Tools for multisig CI 
+Tools for multisig CI
 
 dev
 ```
