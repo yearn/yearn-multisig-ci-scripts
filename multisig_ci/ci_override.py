@@ -41,6 +41,8 @@ class DelegateSafe(ApeSafe):
         """
         Create an ApeSafe from an address or a ENS name and use a default connection.
         """
+        
+        transaction_service[250] = "https://safe-txservice.fantom.network"
         backend_urls = {
             'gnosis': transaction_service,
             'yearn': {1: 'https://safe-transaction.mainnet.gnosis.yearn.tools/'}
