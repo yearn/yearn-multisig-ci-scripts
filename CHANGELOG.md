@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.10](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.9...v0.3.10) (2022-06-26)
+
+
+### Bug Fixes
+
+* turn to hex ([95ccaeb](https://github.com/yearn/yearn-multisig-ci-scripts/commit/95ccaebc5dc9d207583e55a749827beb2ac0e9a3))
+
 ## [0.3.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.8...v0.3.9) (2022-06-26)
 
 
