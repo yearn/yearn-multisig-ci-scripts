@@ -81,7 +81,7 @@ class DelegateSafe(ApeSafe):
 
         if self.is_ci and self.is_send:
             if "{1}" in self.frontend_url:
-                formatted_frontend_url = self.frontend_url.format(self.address, safe_tx.tx_hash)
+                formatted_frontend_url = self.frontend_url.format(self.address, safe_tx.safe_tx_hash)
             else:
                 formatted_frontend_url = self.frontend_url.format(self.address)
 
