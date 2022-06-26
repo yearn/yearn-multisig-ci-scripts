@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.12](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.11...v0.3.12) (2022-06-26)
+
+
+### Bug Fixes
+
+* turn off console colors in CI ([c1656f3](https://github.com/yearn/yearn-multisig-ci-scripts/commit/c1656f3cdcc226cdc8a2f32c58de0ffb8ee169d4))
+
 ## [0.3.11](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.10...v0.3.11) (2022-06-26)
 
 
