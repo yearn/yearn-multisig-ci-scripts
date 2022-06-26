@@ -17,13 +17,13 @@ home_directory = os.environ.get("HOME")
 
 gnosis_frontend_urls = {
     'gnosis': {
-        1: 'https://gnosis-safe.io/app/eth:{0}/transactions/queue',
-        4: 'https://gnosis-safe.io/app/rin:{0}/transactions/queue',
-        56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/queue',
-        100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/queue',
-        137: 'https://gnosis-safe.io/app/matic:{0}/transactions/queue',
+        1: 'https://gnosis-safe.io/app/eth:{0}/transactions/multisig_{0}_{1}',
+        4: 'https://gnosis-safe.io/app/rin:{0}/transactions/multisig_{0}_{1}',
+        56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/multisig_{0}_{1}',
+        100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/multisig_{0}_{1}',
+        137: 'https://gnosis-safe.io/app/matic:{0}/transactions/multisig_{0}_{1}',
         250: 'https://safe.fantom.network/#/safes/{0}/transactions',
-        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/queue'
+        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/multisig_{0}_{1}'
     },
     'yearn': {
         1: 'http://mainnet.gnosis.yearn.tools/eth:{0}/transactions/queue',
@@ -145,11 +145,27 @@ class DelegateSafe(ApeSafe):
                     user.address == DELEGATE_ADDRESS
                 ), "Delegate address mismatch. Check you have correct private key."
                 return user
-            else:
-                print("CI dry-run enabled, set send to true to run to completion")
-                exit(0)
         else:
             return super().get_signer(signer)
+
+    def sign_transaction(self, safe_tx: SafeTx, signer=None) -> SafeTx:
+        if self.is_ci:
+            if '{1}' in self.frontend_url:
+                formatted_frontend_url = self.frontend_url.format(self.address, safe_tx)
+            else:
+                formatted_frontend_url = self.frontend_url.format(self.address)
+
+            with open(os.getenv('GITHUB_ENV'), 'a') as f:
+                f.write("SAFE_LINK={0}\n".format(formatted_frontend_url))
+            
+            with open(os.path.join(home_directory, "safe.txt"), "w") as f:
+                f.write(str(formatted_frontend_url))
+
+            if not self.is_send:
+                print("CI dry-run enabled, set send to true to run to completion")
+                exit(0)
+
+        return super().sign_transaction(safe_tx, signer)
 
 
 with open(os.path.join(home_directory, "alive.signal"), "w") as f:
