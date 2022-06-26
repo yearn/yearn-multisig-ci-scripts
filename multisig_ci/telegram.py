@@ -6,7 +6,7 @@ import re
 SEND_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/sendmessage"
 PIN_MESSAGE_FORMAT = "https://api.telegram.org/bot{0}/pinchatmessage?chat_id={1}&message_id={2}&disable_web_page_preview=true"
 
-escape_chars = r'_*'
+escape_chars = r'*'
 
 def send_message(bot_token, chat_id, chat_message):
     print(chat_message)
