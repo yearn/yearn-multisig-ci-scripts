@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.5...v0.3.6) (2022-06-26)
+
+
+### Bug Fixes
+
+* bugs in tx link generation ([b156862](https://github.com/yearn/yearn-multisig-ci-scripts/commit/b156862ab78f9b99e30682da3d37bf1eca838a2c))
+
 ## [0.3.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.4...v0.3.5) (2022-06-26)
 
 
