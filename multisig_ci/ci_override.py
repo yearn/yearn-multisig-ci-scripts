@@ -6,6 +6,7 @@ from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
 from typing import Optional, Union
 from brownie.network.account import LocalAccount
+from brownie._config import CONFIG
 
 # CI horribleness lurks below
 # If running in CI, let's override ApeSafe.post_transaction so
@@ -164,5 +165,8 @@ class DelegateSafe(ApeSafe):
         
         return super().sign_transaction(safe_tx, signer)
 
-with open(os.path.join(home_directory, "alive.signal"), "w") as f:
-    f.write("I am alive")
+if os.environ.get("CI", "").lower() == "true":
+    with open(os.path.join(home_directory, "alive.signal"), "w") as f:
+        f.write("I am alive")
+
+    CONFIG.settings["console"]["show_colors"] = False
