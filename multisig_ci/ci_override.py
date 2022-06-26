@@ -128,45 +128,47 @@ class DelegateSafe(ApeSafe):
 
 
     def get_signer(self, signer: Optional[Union[LocalAccount, str]] = None) -> LocalAccount:
-        if self.is_ci:
-            with open(os.getenv('GITHUB_ENV'), 'a') as f:
-                f.write("SAFE_LINK={0}\n".format(str(self.frontend_url.format(self.address))))
-            
-            with open(os.path.join(home_directory, "safe.txt"), "w") as f:
-                f.write(str(self.frontend_url.format(self.address)))
-
-            if self.is_send:
-                key = os.environ.get("PRIVATE_KEY")
-                assert (
-                    key is not None
-                ), "CI environment missing PRIVATE_KEY environment variable. Please add it as a repository secret."
-                user = accounts.add(key)
-                assert (
-                    user.address == DELEGATE_ADDRESS
-                ), "Delegate address mismatch. Check you have correct private key."
-                return user
-        else:
+        if not self.is_ci:
             return super().get_signer(signer)
 
+        with open(os.getenv('GITHUB_ENV'), 'a') as f:
+            f.write("SAFE_LINK={0}\n".format(str(self.frontend_url.format(self.address))))
+        
+        with open(os.path.join(home_directory, "safe.txt"), "w") as f:
+            f.write(str(self.frontend_url.format(self.address)))
+
+        if self.is_send:
+            key = os.environ.get("PRIVATE_KEY")
+            assert (
+                key is not None
+            ), "CI environment missing PRIVATE_KEY environment variable. Please add it as a repository secret."
+            user = accounts.add(key)
+            assert (
+                user.address == DELEGATE_ADDRESS
+            ), "Delegate address mismatch. Check you have correct private key."
+            return user
+        
+        return None
+
+
     def sign_transaction(self, safe_tx: SafeTx, signer=None) -> SafeTx:
-        if self.is_ci:
-            if '{1}' in self.frontend_url:
-                formatted_frontend_url = self.frontend_url.format(self.address, safe_tx)
-            else:
-                formatted_frontend_url = self.frontend_url.format(self.address)
+        if not self.is_ci:
+            return super().sign_transaction(safe_tx, signer)
 
-            with open(os.getenv('GITHUB_ENV'), 'a') as f:
-                f.write("SAFE_LINK={0}\n".format(formatted_frontend_url))
-            
-            with open(os.path.join(home_directory, "safe.txt"), "w") as f:
-                f.write(str(formatted_frontend_url))
+        if "{1}" in self.frontend_url:
+            formatted_frontend_url = self.frontend_url.format(self.address, safe_tx)
+        else:
+            formatted_frontend_url = self.frontend_url.format(self.address)
 
-            if not self.is_send:
-                print("CI dry-run enabled, set send to true to run to completion")
-                exit(0)
+        with open(os.getenv('GITHUB_ENV'), 'a') as f:
+            f.write("SAFE_LINK={0}\n".format(formatted_frontend_url))
+        
+        with open(os.path.join(home_directory, "safe.txt"), "w") as f:
+            f.write(str(formatted_frontend_url))
 
-        return super().sign_transaction(safe_tx, signer)
-
+        if not self.is_send:
+            print("CI dry-run enabled, set send to true to run to completion")
+            exit(0)
 
 with open(os.path.join(home_directory, "alive.signal"), "w") as f:
     f.write("I am alive")
