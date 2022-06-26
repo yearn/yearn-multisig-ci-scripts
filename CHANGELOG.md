@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.8](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.7...v0.3.8) (2022-06-26)
+
+
+### Bug Fixes
+
+* generate frontend url after post ([e607d34](https://github.com/yearn/yearn-multisig-ci-scripts/commit/e607d348fe2a361939bedfbf24799cb5855b53ae))
+
 ## [0.3.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.6...v0.3.7) (2022-06-26)
 
 
