@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.8...v0.3.9) (2022-06-26)
+
+
+### Bug Fixes
+
+* safe_tx_hash ([3490513](https://github.com/yearn/yearn-multisig-ci-scripts/commit/34905138655ad145fb89ce41c31062705b015738))
+
 ## [0.3.8](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.7...v0.3.8) (2022-06-26)
 
 
