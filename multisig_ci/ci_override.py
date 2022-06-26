@@ -169,6 +169,8 @@ class DelegateSafe(ApeSafe):
         if not self.is_send:
             print("CI dry-run enabled, set send to true to run to completion")
             exit(0)
+        
+        return super().sign_transaction(safe_tx, signer)
 
 with open(os.path.join(home_directory, "alive.signal"), "w") as f:
     f.write("I am alive")
