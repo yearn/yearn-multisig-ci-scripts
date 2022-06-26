@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.6...v0.3.7) (2022-06-26)
+
+
+### Bug Fixes
+
+* actually sign the tx ([7873582](https://github.com/yearn/yearn-multisig-ci-scripts/commit/78735824cd97f3fcd1470ce05eecb236121d3e1b))
+
 ## [0.3.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.5...v0.3.6) (2022-06-26)
 
 
