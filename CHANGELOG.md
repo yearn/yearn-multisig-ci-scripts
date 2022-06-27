@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.14](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.13...v0.3.14) (2022-06-27)
+
+
+### Bug Fixes
+
+* bring back colors and new url format for fantom ([4881449](https://github.com/yearn/yearn-multisig-ci-scripts/commit/4881449dab28d2a9232394d2fe5c224214424f0c))
+
 ## [0.3.13](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.12...v0.3.13) (2022-06-26)
 
 
