@@ -15,4 +15,3 @@ export PATH=$PATH:$HOME/.poetry/bin
 poetry build
 poetry publish
 ```
-
