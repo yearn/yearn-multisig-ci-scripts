@@ -23,7 +23,7 @@ gnosis_frontend_urls = {
         56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/multisig_{0}_{1}',
         100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/multisig_{0}_{1}',
         137: 'https://gnosis-safe.io/app/matic:{0}/transactions/multisig_{0}_{1}',
-        250: 'https://safe.fantom.network/#/safes/{0}/transactions',
+        250: 'https://safe.fantom.network/ftm:{0}/transactions/multisig_{0}_{1}',
         42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/multisig_{0}_{1}'
     },
     'yearn': {
@@ -168,5 +168,3 @@ class DelegateSafe(ApeSafe):
 if os.environ.get("CI", "").lower() == "true":
     with open(os.path.join(home_directory, "alive.signal"), "w") as f:
         f.write("I am alive")
-
-    CONFIG.settings["console"]["show_colors"] = False
