@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.16](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.15...v0.3.16) (2022-08-12)
+
+
+### Bug Fixes
+
+* add optimism frontend url ([241efe3](https://github.com/yearn/yearn-multisig-ci-scripts/commit/241efe3c0fe0bb56ec63889e1b3fc2ffb94234a8))
+* add optimism transaction service ([a4949c3](https://github.com/yearn/yearn-multisig-ci-scripts/commit/a4949c37af3c1b44a3f6711346af02d58cbbac8d))
+
 ## [0.3.15](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.14...v0.3.15) (2022-06-27)
 
 
