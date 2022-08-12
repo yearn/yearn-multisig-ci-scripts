@@ -20,6 +20,7 @@ gnosis_frontend_urls = {
     'gnosis': {
         1: 'https://gnosis-safe.io/app/eth:{0}/transactions/multisig_{0}_{1}',
         4: 'https://gnosis-safe.io/app/rin:{0}/transactions/multisig_{0}_{1}',
+        10: 'https://gnosis-safe.io/app/oeth:{0}/transactions/multisig_{0}_{1}',
         56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/multisig_{0}_{1}',
         100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/multisig_{0}_{1}',
         137: 'https://gnosis-safe.io/app/matic:{0}/transactions/multisig_{0}_{1}',
