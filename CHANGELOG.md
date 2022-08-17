@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.18](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.17...v0.3.18) (2022-08-17)
+
+
+### Bug Fixes
+
+* import multisends ([cad03bf](https://github.com/yearn/yearn-multisig-ci-scripts/commit/cad03bf8992d77a41feebd096c9843fa5eca55c9))
+
 ## [0.3.17](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.16...v0.3.17) (2022-08-17)
 
 
