@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.17](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.16...v0.3.17) (2022-08-17)
+
+
+### Bug Fixes
+
+* multisends for optimism ([c154ed9](https://github.com/yearn/yearn-multisig-ci-scripts/commit/c154ed9b4ee665e7c929af6d9f722cbac4a828c9))
+
 ## [0.3.16](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.15...v0.3.16) (2022-08-12)
 
 
