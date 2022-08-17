@@ -46,6 +46,7 @@ class DelegateSafe(ApeSafe):
         
         transaction_service[250] = "https://safe-txservice.fantom.network"
         transaction_service[10] = "https://safe-transaction.optimism.gnosis.io"
+        multisends[10] = "0x998739BFdAAdde7C933B942a68053933098f9EDa"
         backend_urls = {
             'gnosis': transaction_service,
             'yearn': {1: 'https://safe-transaction.mainnet.gnosis.yearn.tools/'}
