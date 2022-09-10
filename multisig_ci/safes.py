@@ -17,6 +17,8 @@ elif network.chain.id == 100:
     address = os.getenv("GNOSIS_SAFE_ADDRESS")
 elif network.chain.id == 10:
     address = os.getenv("OPTI_SAFE_ADDRESS")
+elif network.chain.id == 5:
+    address = os.getenv("GOR_SAFE_ADDRESS")
 else:
     address = os.getenv("ETH_SAFE_ADDRESS")
 
