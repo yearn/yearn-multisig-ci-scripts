@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.19](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.18...v0.3.19) (2022-09-10)
+
+
+### Bug Fixes
+
+* add goerli ([38108da](https://github.com/yearn/yearn-multisig-ci-scripts/commit/38108dabcc3949236a369c8c5095daac82f2c27a))
+
 ## [0.3.18](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.17...v0.3.18) (2022-08-17)
 
 
