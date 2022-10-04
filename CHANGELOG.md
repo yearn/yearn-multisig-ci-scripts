@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.20...v0.4.0) (2022-10-04)
+
+
+### Features
+
+* revert back to queue url since signers are lazy ([012ef6e](https://github.com/yearn/yearn-multisig-ci-scripts/commit/012ef6ed1b6f78ab9ab55ba4fb4b0fbc8ecad881))
+
 ## [0.3.20](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.19...v0.3.20) (2022-09-11)
 
 
