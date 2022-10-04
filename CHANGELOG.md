@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.0...v0.4.1) (2022-10-04)
+
+
+### Bug Fixes
+
+* random newline added by virtue of fat finger ([30ba41d](https://github.com/yearn/yearn-multisig-ci-scripts/commit/30ba41d68fc41b7281e29ddc1e610bbc554f7e7e))
+
 ## [0.4.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.3.20...v0.4.0) (2022-10-04)
 
 
