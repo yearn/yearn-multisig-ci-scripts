@@ -57,8 +57,7 @@ class DelegateSafe(ApeSafe):
         if network.chain.id in backend_urls["gnosis"]:
             if network.chain.id not in backend_urls[self.backend_type]:
                 backend_url_from_config = backend_urls["gnosis"][network.chain.id]
-                self.frontend_url = 
-                ["gnosis"][network.chain.id]
+                self.frontend_url = ["gnosis"][network.chain.id]
             else:
                 backend_url_from_config = backend_urls[self.backend_type][network.chain.id]
                 self.frontend_url = gnosis_frontend_urls[self.backend_type][network.chain.id]
