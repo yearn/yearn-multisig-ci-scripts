@@ -18,15 +18,15 @@ home_directory = os.environ.get("HOME")
 
 gnosis_frontend_urls = {
     'gnosis': {
-        1: 'https://gnosis-safe.io/app/eth:{0}/transactions/multisig_{0}_{1}',
-        4: 'https://gnosis-safe.io/app/rin:{0}/transactions/multisig_{0}_{1}',
-        5: 'https://gnosis-safe.io/app/gor:{0}/transactions/multisig_{0}_{1}',
-        10: 'https://gnosis-safe.io/app/oeth:{0}/transactions/multisig_{0}_{1}',
-        56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/multisig_{0}_{1}',
-        100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/multisig_{0}_{1}',
-        137: 'https://gnosis-safe.io/app/matic:{0}/transactions/multisig_{0}_{1}',
-        250: 'https://safe.fantom.network/ftm:{0}/transactions/multisig_{0}_{1}',
-        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/multisig_{0}_{1}'
+        1: 'https://gnosis-safe.io/app/eth:{0}/transactions/queue',
+        4: 'https://gnosis-safe.io/app/rin:{0}/transactions/queue',
+        5: 'https://gnosis-safe.io/app/gor:{0}/transactions/queue',
+        10: 'https://gnosis-safe.io/app/oeth:{0}/transactions/queue',
+        56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/queue',
+        100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/queue',
+        137: 'https://gnosis-safe.io/app/matic:{0}/transactions/queue',
+        250: 'https://safe.fantom.network/ftm:{0}/transactions/queue',
+        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/queue'
     },
     'yearn': {
         1: 'http://mainnet.gnosis.yearn.tools/eth:{0}/transactions/queue',
@@ -57,7 +57,8 @@ class DelegateSafe(ApeSafe):
         if network.chain.id in backend_urls["gnosis"]:
             if network.chain.id not in backend_urls[self.backend_type]:
                 backend_url_from_config = backend_urls["gnosis"][network.chain.id]
-                self.frontend_url = gnosis_frontend_urls["gnosis"][network.chain.id]
+                self.frontend_url = 
+                ["gnosis"][network.chain.id]
             else:
                 backend_url_from_config = backend_urls[self.backend_type][network.chain.id]
                 self.frontend_url = gnosis_frontend_urls[self.backend_type][network.chain.id]
