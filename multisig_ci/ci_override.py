@@ -18,15 +18,15 @@ home_directory = os.environ.get("HOME")
 
 gnosis_frontend_urls = {
     'gnosis': {
-        1: 'https://gnosis-safe.io/app/eth:{0}/transactions/queue',
-        4: 'https://gnosis-safe.io/app/rin:{0}/transactions/queue',
-        5: 'https://gnosis-safe.io/app/gor:{0}/transactions/queue',
-        10: 'https://gnosis-safe.io/app/oeth:{0}/transactions/queue',
-        56: 'https://gnosis-safe.io/app/bsc:{0}/transactions/queue',
-        100: 'https://gnosis-safe.io/app/xdai:{0}/transactions/queue',
-        137: 'https://gnosis-safe.io/app/matic:{0}/transactions/queue',
+        1: 'https://app.safe.global/eth:{0}/transactions/queue',
+        4: 'https://app.safe.global/rin:{0}/transactions/queue',
+        5: 'https://app.safe.global/gor:{0}/transactions/queue',
+        10: 'https://app.safe.global/oeth:{0}/transactions/queue',
+        56: 'https://app.safe.global/bsc:{0}/transactions/queue',
+        100: 'https://app.safe.global/xdai:{0}/transactions/queue',
+        137: 'https://app.safe.global/matic:{0}/transactions/queue',
         250: 'https://safe.fantom.network/ftm:{0}/transactions/queue',
-        42161: 'https://gnosis-safe.io/app/arb1:{0}/transactions/queue'
+        42161: 'https:/app.safe.global/arb1:{0}/transactions/queue'
     },
     'yearn': {
         1: 'http://mainnet.gnosis.yearn.tools/eth:{0}/transactions/queue',
