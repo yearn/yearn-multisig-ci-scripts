@@ -26,7 +26,7 @@ gnosis_frontend_urls = {
         100: 'https://app.safe.global/xdai:{0}/transactions/queue',
         137: 'https://app.safe.global/matic:{0}/transactions/queue',
         250: 'https://safe.fantom.network/ftm:{0}/transactions/queue',
-        42161: 'https:/app.safe.global/arb1:{0}/transactions/queue'
+        42161: 'https://app.safe.global/arb1:{0}/transactions/queue'
     },
     'yearn': {
         1: 'http://mainnet.gnosis.yearn.tools/eth:{0}/transactions/queue',
