@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.1...v0.4.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* update urls ([76269f8](https://github.com/yearn/yearn-multisig-ci-scripts/commit/76269f8dc8fae4db5a5f9e73fd2f3fa80fc93ba2))
+
 ## [0.4.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.0...v0.4.1) (2022-10-04)
 
 
