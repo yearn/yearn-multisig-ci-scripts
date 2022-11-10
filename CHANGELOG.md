@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.3...v0.4.4) (2022-11-10)
+
+
+### Bug Fixes
+
+* add tenderly fork as a new option in [@sign](https://github.com/sign) ([cdbb90c](https://github.com/yearn/yearn-multisig-ci-scripts/commit/cdbb90c87c6997e93c6d80c1948a3fd119f8816a))
+
 ## [0.4.3](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.2...v0.4.3) (2022-11-08)
 
 
