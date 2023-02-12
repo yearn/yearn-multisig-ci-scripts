@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.4...v0.4.5) (2023-02-12)
+
+
+### Bug Fixes
+
+* tenderly_fork change id ([4f9730b](https://github.com/yearn/yearn-multisig-ci-scripts/commit/4f9730bd22c1361a5ab8c8d167d87ee9070060ea))
+
 ## [0.4.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.3...v0.4.4) (2022-11-10)
 
 
