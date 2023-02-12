@@ -5,7 +5,7 @@ def _tenderly_fork(safe):
    import brownie
 
    fork_base_url = "https://simulate.yearn.network/fork"
-   payload = {"network_id": "1"}
+   payload = {"network_id": str(chain.id)}
    resp = requests.post(fork_base_url, headers={}, json=payload)
    fork_id = resp.json()["simulation_fork"]["id"]
    fork_rpc_url = f"https://rpc.tenderly.co/fork/{fork_id}"
