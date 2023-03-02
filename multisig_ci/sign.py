@@ -3,6 +3,7 @@ from multisig_ci.safes import safe
 def _tenderly_fork(safe):
    import requests
    import brownie
+   from brownie import chain
 
    fork_base_url = "https://simulate.yearn.network/fork"
    payload = {"network_id": str(chain.id)}
