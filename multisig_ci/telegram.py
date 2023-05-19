@@ -60,6 +60,6 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'send_and_pin_message':
         try:
             send_and_pin_message(sys.argv[2], sys.argv[3], os.getenv("TELEGRAM_MESSAGE"))
-            exit(0)
         except:
             exit(1)
+        exit(0)
