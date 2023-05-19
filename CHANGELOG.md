@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.8...v0.4.9) (2023-05-19)
+
+
+### Bug Fixes
+
+* overridable timeout for tenderly_fork ([21b4bc7](https://github.com/yearn/yearn-multisig-ci-scripts/commit/21b4bc7ed7afa46d1d6575f7531086a00c67823c))
+
 ## [0.4.8](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.7...v0.4.8) (2023-05-19)
 
 
