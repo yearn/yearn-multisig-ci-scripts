@@ -16,7 +16,6 @@ def send_message(bot_token, chat_id, chat_message):
     res = requests.post(uri, data={'chat_id':chat_id, 'text': chat_message, 'disable_web_page_preview': True, 'parse_mode': 'markdown'})
     print(res)
     print(res.text)
-    print("test")
     if res.ok:
         return res.json(), res.ok
     else:
@@ -27,7 +26,6 @@ def pin_message(bot_token, chat_id, chat_message_id):
     res = requests.get(uri)
     print(res)
     print(res.text)
-    print("test")
     if res.ok:
         return res.json(), res.ok
     else:
@@ -60,6 +58,6 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'send_and_pin_message':
         try:
             send_and_pin_message(sys.argv[2], sys.argv[3], os.getenv("TELEGRAM_MESSAGE"))
-        except:
+        except Exception as e:
+            print(e)
             exit(1)
-        exit(0)
