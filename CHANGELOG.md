@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.6...v0.4.7) (2023-05-19)
+
+
+### Bug Fixes
+
+* exit codes for telegram script ([1f9ec31](https://github.com/yearn/yearn-multisig-ci-scripts/commit/1f9ec311a2dc3a3e9c32ff24482937c2a99d2c2b))
+
 ## [0.4.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.5...v0.4.6) (2023-03-02)
 
 
