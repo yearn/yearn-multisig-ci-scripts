@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.10](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.9...v0.4.10) (2023-06-27)
+
+
+### Bug Fixes
+
+* patch new gnosis api url ([2f4dbd2](https://github.com/yearn/yearn-multisig-ci-scripts/commit/2f4dbd2182bd7a28fa9da136b4583027b204e90b))
+
 ## [0.4.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.8...v0.4.9) (2023-05-19)
 
 
