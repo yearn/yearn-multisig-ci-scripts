@@ -38,6 +38,21 @@ gnosis_frontend_urls = {
     }
 }
 
+patched_transaction_service_urls = {
+    1: 'https://safe-transaction-mainnet.safe.global',
+    5: 'https://safe-transaction-goerli.safe.global',
+    10: 'https://safe-transaction-optimism.safe.global',
+    56: 'https://safe-transaction-bsc.safe.global',
+    100: 'https://safe-transaction-gnosis-chain.safe.global',
+    137: 'https://safe-transaction-polygon.safe.global',
+    246: 'https://safe-transaction-ewc.safe.global',
+    250: 'https://safe-txservice.fantom.network',
+    288: 'https://safe-transaction.mainnet.boba.network',
+    42161: 'https://safe-transaction-arbitrum.safe.global',
+    43114: 'https://safe-transaction-avalanche.safe.global',
+    73799: 'https://safe-transaction-volta.safe.global',
+    1313161554: 'https://safe-transaction-aurora.safe.global',
+}
 
 class DelegateSafe(ApeSafe):
     def __init__(self, address, base_url=None, multisend=None):
@@ -45,8 +60,9 @@ class DelegateSafe(ApeSafe):
         Create an ApeSafe from an address or a ENS name and use a default connection.
         """
         
-        transaction_service[250] = "https://safe-txservice.fantom.network"
-        transaction_service[10] = "https://safe-transaction.optimism.gnosis.io"
+        for network, url in patched_transaction_service_urls.values():
+            transaction_service[network] = url
+
         multisends[10] = "0x998739BFdAAdde7C933B942a68053933098f9EDa"
         backend_urls = {
             'gnosis': transaction_service,
