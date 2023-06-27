@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.12](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.11...v0.4.12) (2023-06-27)
+
+
+### Bug Fixes
+
+* network -&gt; n ([27d3e91](https://github.com/yearn/yearn-multisig-ci-scripts/commit/27d3e91b8868c748f5c0a314a5a45696221beb36))
+
 ## [0.4.11](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.10...v0.4.11) (2023-06-27)
 
 
