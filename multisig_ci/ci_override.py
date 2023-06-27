@@ -60,7 +60,7 @@ class DelegateSafe(ApeSafe):
         Create an ApeSafe from an address or a ENS name and use a default connection.
         """
         
-        for network, url in patched_transaction_service_urls.values():
+        for network, url in patched_transaction_service_urls.items():
             transaction_service[network] = url
 
         multisends[10] = "0x998739BFdAAdde7C933B942a68053933098f9EDa"
