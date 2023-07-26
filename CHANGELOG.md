@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.1...v0.6.2) (2023-07-26)
+
+
+### Bug Fixes
+
+* do less than py 11 ([99fdb27](https://github.com/yearn/yearn-multisig-ci-scripts/commit/99fdb277f3bd1ed427e494ed444c39e06f950779))
+
 ## [0.6.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.0...v0.6.1) (2023-07-26)
 
 
