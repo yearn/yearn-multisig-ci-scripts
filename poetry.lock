@@ -30,19 +30,6 @@ python-versions = ">=3.6"
 frozenlist = ">=1.1.0"
 
 [[package]]
-name = "ape-safe"
-version = "0.5.1"
-description = "Build complex Gnosis Safe transactions and safely preview them in a forked environment."
-category = "main"
-optional = false
-python-versions = ">=3.8,<4.0"
-
-[package.dependencies]
-eth-brownie = ">=1.17.0,<2.0.0"
-gnosis-py = ">=3.7.5,<4.0.0"
-trezor = ">=0.13.0,<0.14.0"
-
-[[package]]
 name = "asttokens"
 version = "2.0.5"
 description = "Annotate AST trees with source code positions"
@@ -126,6 +113,19 @@ colorama = ["colorama (>=0.4.3)"]
 d = ["aiohttp (>=3.7.4)"]
 jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
+name = "brownie-safe"
+version = "0.8.0"
+description = "Build complex Gnosis Safe transactions and safely preview them in a forked environment."
+category = "main"
+optional = false
+python-versions = ">=3.8,<3.11"
+
+[package.dependencies]
+eth-brownie = "1.19.2"
+safe-eth-py = "4.3.2"
+trezor = "0.13.7"
 
 [[package]]
 name = "cached-property"
@@ -556,17 +556,6 @@ description = "A list-like structure which implements collections.abc.MutableSeq
 category = "main"
 optional = false
 python-versions = ">=3.7"
-
-[[package]]
-name = "gnosis-py"
-version = "3.9.5"
-description = "gnosis-py is now safe-eth-py"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-safe-eth-py = "*"
 
 [[package]]
 name = "hexbytes"
@@ -1412,17 +1401,13 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.10"
-content-hash = "e740ada32636b80d4ef2ff8fe0b78d5688ac3aa2b3114ce812c6c6d407427b57"
+content-hash = "759e7a28bf997fb0a452102aaa39b0b0de6c3faf9ea8d812d1e437f8a8dc4b00"
 
 [metadata.files]
 aiohttp = []
 aiosignal = [
     {file = "aiosignal-1.2.0-py3-none-any.whl", hash = "sha256:26e62109036cd181df6e6ad646f91f0dcfd05fe16d0cb924138ff2ab75d64e3a"},
     {file = "aiosignal-1.2.0.tar.gz", hash = "sha256:78ed67db6c7b7ced4f98e495e572106d5c432a93e1ddd1bf475e1dc05f5b7df2"},
-]
-ape-safe = [
-    {file = "ape-safe-0.5.1.tar.gz", hash = "sha256:e933f07c726a5c51c4a54d60184d67898940c099e06175a98fdca56c39659139"},
-    {file = "ape_safe-0.5.1-py3-none-any.whl", hash = "sha256:27553fe3bf5ff3501d91ab972bbd667f51302ca1a66c07aee7de04473aa6aead"},
 ]
 asttokens = [
     {file = "asttokens-2.0.5-py2.py3-none-any.whl", hash = "sha256:0844691e88552595a6f4a4281a9f7f79b8dd45ca4ccea82e5e05b4bbdb76705c"},
@@ -1440,6 +1425,7 @@ base58 = [
 ]
 bitarray = []
 black = []
+brownie-safe = []
 cached-property = [
     {file = "cached-property-1.5.2.tar.gz", hash = "sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"},
     {file = "cached_property-1.5.2-py2.py3-none-any.whl", hash = "sha256:df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0"},
@@ -1505,10 +1491,6 @@ execnet = [
     {file = "execnet-1.9.0.tar.gz", hash = "sha256:8f694f3ba9cc92cab508b152dcfe322153975c29bda272e2fd7f3f00f36e47c5"},
 ]
 frozenlist = []
-gnosis-py = [
-    {file = "gnosis-py-3.9.5.tar.gz", hash = "sha256:3d3347fc86a6d1b8c4c17a5196a366c49d914f3b9159dfdfe1a540f26b37b38c"},
-    {file = "gnosis_py-3.9.5-py3-none-any.whl", hash = "sha256:7d06a00ace2bb06e6e50847589a2b68dd5428f58a39bf66c3db5586b25cda9dc"},
-]
 hexbytes = []
 hypothesis = [
     {file = "hypothesis-6.27.3-py3-none-any.whl", hash = "sha256:1c4568f40ca893c884330a1de0e0e5dcb1e867c60a56f414cb7bce97afc8dfec"},

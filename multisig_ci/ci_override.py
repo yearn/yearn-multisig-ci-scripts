@@ -1,6 +1,7 @@
 import os
 from copy import copy
-from ape_safe import ApeSafe, transaction_service, multisends
+from brownie_safe import BrownieSafe as ApeSafe
+from brownie_safe import transaction_service, multisends
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
