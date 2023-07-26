@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.12...v0.5.0) (2023-07-26)
+
+
+### Features
+
+* bump brownie ([6316636](https://github.com/yearn/yearn-multisig-ci-scripts/commit/631663641904df436e9616d1508b3616dfc9bf4e))
+
 ## [0.4.12](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.11...v0.4.12) (2023-06-27)
 
 
