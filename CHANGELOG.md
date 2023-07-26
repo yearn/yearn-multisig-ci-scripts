@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.5.0...v0.6.0) (2023-07-26)
+
+
+### Features
+
+* use brownie-safe ([6c77c95](https://github.com/yearn/yearn-multisig-ci-scripts/commit/6c77c9530ce4c464ef49bfd1d3e22abda58266ce))
+
 ## [0.5.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.4.12...v0.5.0) (2023-07-26)
 
 
