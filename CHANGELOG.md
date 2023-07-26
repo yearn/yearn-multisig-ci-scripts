@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.0...v0.6.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* allow py 3.10 ([aefc8a5](https://github.com/yearn/yearn-multisig-ci-scripts/commit/aefc8a5046b7280a1c66427b77381102d350dd7c))
+
 ## [0.6.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.5.0...v0.6.0) (2023-07-26)
 
 
