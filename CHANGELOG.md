@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.10](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.9...v0.6.10) (2023-07-27)
+
+
+### Bug Fixes
+
+* flat maxFeePerGas ([4ece3aa](https://github.com/yearn/yearn-multisig-ci-scripts/commit/4ece3aad6c8425bab24c6961fa51ff8280dad3bd))
+
 ## [0.6.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.8...v0.6.9) (2023-07-27)
 
 
