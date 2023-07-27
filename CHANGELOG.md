@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.4...v0.6.5) (2023-07-27)
+
+
+### Bug Fixes
+
+* remove yearn gnosis backend code ([c0ff499](https://github.com/yearn/yearn-multisig-ci-scripts/commit/c0ff499a26d69f982d4472f2d56536e5e5b3968c))
+
 ## [0.6.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.3...v0.6.4) (2023-07-27)
 
 
