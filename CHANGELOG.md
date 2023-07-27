@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.6...v0.6.7) (2023-07-27)
+
+
+### Bug Fixes
+
+* do preview correctly ([95da57c](https://github.com/yearn/yearn-multisig-ci-scripts/commit/95da57c63f822461aa5011437b17c26a44a755ba))
+
 ## [0.6.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.5...v0.6.6) (2023-07-27)
 
 
