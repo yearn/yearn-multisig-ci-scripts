@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.3...v0.6.4) (2023-07-27)
+
+
+### Bug Fixes
+
+* don't import transactions ([b04b67d](https://github.com/yearn/yearn-multisig-ci-scripts/commit/b04b67def1b22a92bdee0948034bc66d541c6eb3))
+
 ## [0.6.3](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.2...v0.6.3) (2023-07-27)
 
 
