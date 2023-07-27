@@ -41,7 +41,7 @@ class DelegateSafe(ApeSafe):
         else:
             self.frontend_url = gnosis_frontend_urls[1]
 
-        super().__init__(address, base_url=self.base_url, multisend=multisend)
+        super().__init__(address, base_url=base_url, multisend=multisend)
 
     @property
     def is_ci(self):
