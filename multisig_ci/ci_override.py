@@ -1,7 +1,7 @@
 import os
 from copy import copy
 from brownie_safe import BrownieSafe as ApeSafe
-from brownie_safe import multisends
+from brownie_safe import multisends, ExecutionFailure
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
@@ -70,12 +70,40 @@ class DelegateSafe(ApeSafe):
                 f.write(str(safe_tx.safe_nonce))
             exit(0)
 
-    def preview(self, safe_tx: SafeTx, events=True, call_trace=False, reset=True):
+    def preview_tx(self, safe_tx: SafeTx, events=True, call_trace=False):
         if self.is_ci:
             events = False
             call_trace = False
 
-        return super().preview(safe_tx, events, call_trace, reset)
+        tx = copy(safe_tx)
+        safe = Contract.from_abi('Gnosis Safe', self.address, self.get_contract().abi)
+        # Replace pending nonce with the subsequent nonce, this could change the safe_tx_hash
+        tx.safe_nonce = safe.nonce()
+        # Forge signatures from the needed amount of owners, skip the one which submits the tx
+        # Owners must be sorted numerically, sorting as checksum addresses may yield wrong order
+        threshold = safe.getThreshold()
+        sorted_owners = sorted(safe.getOwners(), key=lambda x: int(x, 16))
+        owners = [accounts.at(owner, force=True) for owner in sorted_owners[:threshold]]
+        for owner in owners:
+            safe.approveHash(tx.safe_tx_hash, {'from': owner})
+
+        # Signautres are encoded as [bytes32 r, bytes32 s, bytes8 v]
+        # Pre-validated signatures are encoded as r=owner, s unused and v=1.
+        # https://docs.gnosis.io/safe/docs/contracts_signatures/#pre-validated-signatures
+        tx.signatures = b''.join([encode_abi(['address', 'uint'], [str(owner), 0]) + b'\x01' for owner in owners])
+        payload = tx.w3_tx.buildTransaction({'gas': str(chain.block_gas_limit)})
+        receipt = owners[0].transfer(payload['to'], payload['value'], gas_limit=payload['gas'], data=payload['data'])
+
+        if 'ExecutionSuccess' not in receipt.events:
+            receipt.info()
+            receipt.call_trace(True)
+            raise ExecutionFailure()
+
+        if events:
+            receipt.info()
+        if call_trace:
+            receipt.call_trace(True)
+        return receipt
 
     def get_signer(self, signer: Optional[Union[LocalAccount, str]] = None) -> LocalAccount:
         if not self.is_ci:
