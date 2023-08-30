@@ -16,6 +16,7 @@ from brownie._config import CONFIG
 
 DELEGATE_ADDRESS = os.environ.get("DELEGATE_ADDRESS")
 home_directory = os.environ.get("HOME")
+BASE_CHAIN_ID = 8453
 
 gnosis_frontend_urls = {
     1: 'https://app.safe.global/eth:{0}/transactions/queue',
@@ -30,8 +31,6 @@ gnosis_frontend_urls = {
     42161: 'https://app.safe.global/arb1:{0}/transactions/queue',
 }
 
-TransactionServiceBackport.URL_BY_NETWORK[8453] = "https://safe-transaction-base.safe.global"
-
 class DelegateSafe(ApeSafe):
     def __init__(self, address, base_url=None, multisend=None):
         """
@@ -43,6 +42,10 @@ class DelegateSafe(ApeSafe):
             self.frontend_url = gnosis_frontend_urls[network.chain.id]
         else:
             self.frontend_url = gnosis_frontend_urls[1]
+        
+        if not base_url and network.chain.id == BASE_CHAIN_ID:
+            base_url = "https://safe-transaction-base.safe.global"
+
         super().__init__(address, base_url=base_url, multisend=multisend)
 
     @property
