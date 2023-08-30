@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.10...v0.7.0) (2023-08-30)
+
+
+### Features
+
+* support BASE ([50178cd](https://github.com/yearn/yearn-multisig-ci-scripts/commit/50178cd0c49bec39ec0195f5f0a07fd2f50e6665))
+
 ## [0.6.10](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.9...v0.6.10) (2023-07-27)
 
 
