@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.7.0...v0.7.1) (2023-08-30)
+
+
+### Bug Fixes
+
+* workaround brownie-safe issue with BASE chain ([052c5d2](https://github.com/yearn/yearn-multisig-ci-scripts/commit/052c5d200d1789ff8ee2be926ffcdce750f88f13))
+
 ## [0.7.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.6.10...v0.7.0) (2023-08-30)
 
 
