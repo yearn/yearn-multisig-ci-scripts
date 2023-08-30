@@ -7,6 +7,7 @@ from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
 from typing import Optional, Union
 from brownie.network.account import LocalAccount
+from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
 
 # CI horribleness lurks below
@@ -30,6 +31,8 @@ gnosis_frontend_urls = {
     8453: 'https://app.safe.global/base:{0}/transactions/queue',
     42161: 'https://app.safe.global/arb1:{0}/transactions/queue',
 }
+
+_explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
 
 class DelegateSafe(ApeSafe):
     def __init__(self, address, base_url=None, multisend=None):
