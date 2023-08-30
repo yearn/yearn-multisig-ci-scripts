@@ -1,7 +1,7 @@
 import os
 from copy import copy
 from brownie_safe import BrownieSafe as ApeSafe
-from brownie_safe import multisends, ExecutionFailure
+from brownie_safe import multisends, ExecutionFailure, TransactionServiceBackport
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
@@ -26,8 +26,11 @@ gnosis_frontend_urls = {
     100: 'https://app.safe.global/xdai:{0}/transactions/queue',
     137: 'https://app.safe.global/matic:{0}/transactions/queue',
     250: 'https://safe.fantom.network/ftm:{0}/transactions/queue',
-    42161: 'https://app.safe.global/arb1:{0}/transactions/queue'
+    8453: 'https://app.safe.global/base:{0}/transactions/queue',
+    42161: 'https://app.safe.global/arb1:{0}/transactions/queue',
 }
+
+TransactionServiceBackport.URL_BY_NETWORK[8453] = "https://safe-transaction-base.safe.global"
 
 class DelegateSafe(ApeSafe):
     def __init__(self, address, base_url=None, multisend=None):
@@ -40,7 +43,6 @@ class DelegateSafe(ApeSafe):
             self.frontend_url = gnosis_frontend_urls[network.chain.id]
         else:
             self.frontend_url = gnosis_frontend_urls[1]
-
         super().__init__(address, base_url=base_url, multisend=multisend)
 
     @property
