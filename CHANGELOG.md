@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.7.1...v0.7.2) (2023-08-30)
+
+
+### Bug Fixes
+
+* add basescan token support ([d613611](https://github.com/yearn/yearn-multisig-ci-scripts/commit/d613611f84190f003be18f7c835e6713851a8d54))
+
 ## [0.7.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.7.0...v0.7.1) (2023-08-30)
 
 
