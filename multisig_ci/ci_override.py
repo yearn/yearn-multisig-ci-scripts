@@ -1,7 +1,7 @@
 import os
 from copy import copy
 from brownie_safe import BrownieSafe as ApeSafe
-from brownie_safe import multisends, ExecutionFailure, TransactionServiceBackport
+from brownie_safe import ExecutionFailure
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
 from eth_abi import encode_abi
@@ -39,8 +39,6 @@ class DelegateSafe(ApeSafe):
         """
         Create an ApeSafe from an address or a ENS name and use a default connection.
         """
-        multisends[10] = "0x998739BFdAAdde7C933B942a68053933098f9EDa"
-
         if network.chain.id in gnosis_frontend_urls:
             self.frontend_url = gnosis_frontend_urls[network.chain.id]
         else:
