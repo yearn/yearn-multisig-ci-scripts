@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.2](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.1...v0.8.2) (2023-09-23)
+
+
+### Bug Fixes
+
+* patch brownie_safe CUSTOM_MULTISENDS to avoid bug ([badc9a6](https://github.com/yearn/yearn-multisig-ci-scripts/commit/badc9a6fa134509c8a5241a4e666627b77309e90))
+
 ## [0.8.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.0...v0.8.1) (2023-09-23)
 
 
