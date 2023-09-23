@@ -10,6 +10,11 @@ from brownie.network.account import LocalAccount
 from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
 
+from brownie_safe import CUSTOM_MULTISENDS
+
+for e, v in CUSTOM_MULTISENDS.copy().items():
+    CUSTOM_MULTISENDS[e.value] = v
+
 # CI horribleness lurks below
 # If running in CI, let's override ApeSafe.post_transaction so
 # that it writes a file with the nonce. This is used to later tag
