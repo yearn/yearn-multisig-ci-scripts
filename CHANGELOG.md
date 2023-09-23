@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.0...v0.8.1) (2023-09-23)
+
+
+### Bug Fixes
+
+* multisends remove in brownie-safe ([19be032](https://github.com/yearn/yearn-multisig-ci-scripts/commit/19be0329f4302e3167baa8ad869d41f73502a625))
+
 ## [0.8.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.7.2...v0.8.0) (2023-09-23)
 
 
