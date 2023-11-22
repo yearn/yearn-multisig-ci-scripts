@@ -25,16 +25,16 @@ home_directory = os.environ.get("HOME")
 BASE_CHAIN_ID = 8453
 
 gnosis_frontend_urls = {
-    1: 'https://app.safe.global/eth:{0}/transactions/queue',
-    4: 'https://app.safe.global/rin:{0}/transactions/queue',
-    5: 'https://app.safe.global/gor:{0}/transactions/queue',
-    10: 'https://app.safe.global/oeth:{0}/transactions/queue',
-    56: 'https://app.safe.global/bsc:{0}/transactions/queue',
-    100: 'https://app.safe.global/xdai:{0}/transactions/queue',
-    137: 'https://app.safe.global/matic:{0}/transactions/queue',
-    250: 'https://safe.fantom.network/ftm:{0}/transactions/queue',
-    8453: 'https://app.safe.global/base:{0}/transactions/queue',
-    42161: 'https://app.safe.global/arb1:{0}/transactions/queue',
+    1: 'https://app.safe.global/transactions/queue?safe=eth:{0}',
+    4: 'https://app.safe.global/transactions/queue?safe=rin:{0}',
+    5: 'https://app.safe.global/transactions/queue?safe=gor:{0}',
+    10: 'https://app.safe.global/transactions/queue?safe=oeth:{0}',
+    56: 'https://app.safe.global/transactions/queue?safe=bnb:{0}',
+    100: 'https://app.safe.global/transactions/queue?safe=xdai:{0}',
+    137: 'https://app.safe.global/transactions/queue?safe=matic:{0}',
+    250: 'https://safe.fantom.network/transactions/queue?safe=ftm:{0}',
+    8453: 'https://app.safe.global/transactions/queue?safe=base:{0}',
+    42161: 'https://app.safe.global/transactions/queue?safe=arb1:{0}',
 }
 
 _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
