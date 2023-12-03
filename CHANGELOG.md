@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.4...v0.8.5) (2023-12-03)
+
+
+### Bug Fixes
+
+* handle anvil ([4a07053](https://github.com/yearn/yearn-multisig-ci-scripts/commit/4a07053e2178092dff1d5b9a7b181fe13a8fb546))
+
 ## [0.8.4](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.3...v0.8.4) (2023-11-22)
 
 
