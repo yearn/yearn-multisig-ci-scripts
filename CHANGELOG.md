@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.6...v0.8.7) (2023-12-14)
+
+
+### Bug Fixes
+
+* force build ([85b82bd](https://github.com/yearn/yearn-multisig-ci-scripts/commit/85b82bda90c94c7b5a91618a584b1e1cdbabcc49))
+
 ## [0.8.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.5...v0.8.6) (2023-12-14)
 
 
