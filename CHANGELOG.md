@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.6](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.5...v0.8.6) (2023-12-14)
+
+
+### Bug Fixes
+
+* override anvil mine ([984b4af](https://github.com/yearn/yearn-multisig-ci-scripts/commit/984b4afefa50b78cee66ec9b0caf55f83f03b9fe))
+
 ## [0.8.5](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.4...v0.8.5) (2023-12-03)
 
 
