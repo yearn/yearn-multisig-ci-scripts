@@ -9,6 +9,16 @@ from typing import Optional, Union
 from brownie.network.account import LocalAccount
 from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
+from brownie.network.rpc.anvil import _request
+import brownie.network.rpc.anvil
+
+def mine_override(timestamp: Optional[int] = None) -> None:
+    if timestamp:
+        _request("evm_setNextBlockTimestamp", [timestamp])
+    _request("evm_mine", [])
+
+brownie.network.rpc.anvil.mine = mine_override
+
 
 from brownie_safe import CUSTOM_MULTISENDS
 

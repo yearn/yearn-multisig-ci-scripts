@@ -14,6 +14,7 @@ def run_brownie(args):
 
     # Kill processes to make sure we start clean
     kill_process_by_cmdline("ganache-cli")
+    kill_process_by_cmdline("anvil")
     kill_process_by_name("brownie")
     kill_process_by_cmdline("anvil")
 
@@ -38,10 +39,10 @@ def run_brownie(args):
     current_try_count += 1
 
     if not os.path.exists(signal_file_path):
-        print(f"alive signal not found, killing brownie and ganache. queuing try #{current_try_count}")
+        print(f"alive signal not found, killing brownie, ganache, and anvil. queuing try #{current_try_count}")
         p.terminate()
         kill_process_by_cmdline("ganache-cli")
-        kill_process_by_cmdline("anvil")  
+        kill_process_by_cmdline("anvil")
         raise Exception()
 
     print("found alive signal, waiting for process to complete")
