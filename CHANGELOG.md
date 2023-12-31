@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.8...v0.8.9) (2023-12-31)
+
+
+### Bug Fixes
+
+* swallow sentry init exception: ([2e2c109](https://github.com/yearn/yearn-multisig-ci-scripts/commit/2e2c1098429bd29bbbea2fa5261a0eac7b3f0a94))
+
 ## [0.8.8](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.7...v0.8.8) (2023-12-31)
 
 
