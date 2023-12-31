@@ -12,6 +12,23 @@ from brownie._config import CONFIG
 from _pytest.monkeypatch import MonkeyPatch
 from brownie.network.rpc import anvil 
 
+try:
+    import sentry_sdk
+    sentry_dsn = os.environ.get("SENTRY_DSN")
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        traces_sample_rate=1.0,
+        # Set profiles_sample_rate to 1.0 to profile 100%
+        # of sampled transactions.
+        # We recommend adjusting this value in production.
+        profiles_sample_rate=1.0,
+    )
+    print("Sentry initialized!")
+except ImportError:
+    pass
+
 def mine_override(timestamp: Optional[int] = None) -> None:
     if timestamp:
         anvil._request("evm_setNextBlockTimestamp", [timestamp])

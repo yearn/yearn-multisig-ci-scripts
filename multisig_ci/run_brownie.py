@@ -7,6 +7,22 @@ signal_file_path = os.path.join(home_directory, "alive.signal")
 nonce_file_path = os.path.join(home_directory, "nonce.txt")
 current_try_count = 0
 
+try:
+    import sentry_sdk
+    sentry_dsn = os.environ.get("SENTRY_DSN")
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        # Set traces_sample_rate to 1.0 to capture 100%
+        # of transactions for performance monitoring.
+        traces_sample_rate=1.0,
+        # Set profiles_sample_rate to 1.0 to profile 100%
+        # of sampled transactions.
+        # We recommend adjusting this value in production.
+        profiles_sample_rate=1.0,
+    )
+    print("Sentry initialized!")
+except ImportError:
+    pass
 
 @retry(stop=stop_after_attempt(5))
 def run_brownie(args):
@@ -14,7 +30,6 @@ def run_brownie(args):
 
     # Kill processes to make sure we start clean
     kill_process_by_cmdline("ganache-cli")
-    kill_process_by_cmdline("anvil")
     kill_process_by_name("brownie")
     kill_process_by_cmdline("anvil")
 
