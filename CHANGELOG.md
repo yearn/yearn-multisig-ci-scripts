@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.8](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.7...v0.8.8) (2023-12-31)
+
+
+### Bug Fixes
+
+* add optional sentry integration ([a6a8238](https://github.com/yearn/yearn-multisig-ci-scripts/commit/a6a8238596ff3841d9032639b59733953ff85a93))
+
 ## [0.8.7](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.6...v0.8.7) (2023-12-14)
 
 
