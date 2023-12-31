@@ -21,7 +21,7 @@ try:
         profiles_sample_rate=1.0,
     )
     print("Sentry initialized!")
-except ImportError:
+except Exception:
     pass
 
 @retry(stop=stop_after_attempt(5))

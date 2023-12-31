@@ -26,7 +26,7 @@ try:
         profiles_sample_rate=1.0,
     )
     print("Sentry initialized!")
-except ImportError:
+except Exception:
     pass
 
 def mine_override(timestamp: Optional[int] = None) -> None:
