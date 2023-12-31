@@ -11,20 +11,10 @@ from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
 from _pytest.monkeypatch import MonkeyPatch
 from brownie.network.rpc import anvil 
+from multisig_ci.sentry_wrapper import custom_sentry_trace
 
-try:
-    import sentry_sdk
-    sentry_dsn = os.environ.get("SENTRY_DSN")
-    sentry_sdk.init(
-        dsn=sentry_dsn,
-        traces_sample_rate=1.0,
-        profiles_sample_rate=1.0,
-        enable_tracing=True,
-    )
-    print("Sentry initialized!")
-except Exception:
-    pass
 
+@custom_sentry_trace
 def mine_override(timestamp: Optional[int] = None) -> None:
     if timestamp:
         anvil._request("evm_setNextBlockTimestamp", [timestamp])
@@ -85,6 +75,7 @@ class DelegateSafe(ApeSafe):
     def is_send(self):
         return os.environ.get("GITHUB_ACTION_SEND", "").lower() == "true"
 
+    @custom_sentry_trace
     def post_transaction(self, safe_tx: SafeTx):
         super().post_transaction(safe_tx)
 
@@ -104,6 +95,7 @@ class DelegateSafe(ApeSafe):
                 f.write(str(safe_tx.safe_nonce))
             exit(0)
 
+    @custom_sentry_trace
     def preview_tx(self, safe_tx: SafeTx, events=True, call_trace=False):
         if self.is_ci:
             events = False
@@ -139,6 +131,7 @@ class DelegateSafe(ApeSafe):
             receipt.call_trace(True)
         return receipt
 
+    @custom_sentry_trace
     def get_signer(self, signer: Optional[Union[LocalAccount, str]] = None) -> LocalAccount:
         if not self.is_ci:
             return super().get_signer(signer)

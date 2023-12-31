@@ -1,6 +1,7 @@
 from multisig_ci.safes import safe
+from multisig_ci.sentry_wrapper import custom_sentry_trace
 
-
+@custom_sentry_trace
 def _tenderly_fork(safe, timeout_seconds):
    import requests
    import brownie
@@ -17,7 +18,7 @@ def _tenderly_fork(safe, timeout_seconds):
    safe.w3.provider = tenderly_provider
    print(f"https://dashboard.tenderly.co/yearn/yearn-web/fork/{fork_id}")
 
-
+@custom_sentry_trace
 def sign(nonce_arg = None, skip_preview = False, post_tx = False, tenderly_fork = False, tenderly_timeout_seconds = 60):
     def _sign(func):
         def wrapper():

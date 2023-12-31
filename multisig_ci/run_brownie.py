@@ -1,6 +1,7 @@
 from subprocess import Popen
 from tenacity import *
 import sys, time, os, signal, psutil
+from multisig_ci.sentry_wrapper import custom_sentry_trace
 
 home_directory = os.environ.get("HOME")
 signal_file_path = os.path.join(home_directory, "alive.signal")
@@ -12,18 +13,13 @@ try:
     sentry_dsn = os.environ.get("SENTRY_DSN")
     sentry_sdk.init(
         dsn=sentry_dsn,
-        # Set traces_sample_rate to 1.0 to capture 100%
-        # of transactions for performance monitoring.
         traces_sample_rate=1.0,
-        # Set profiles_sample_rate to 1.0 to profile 100%
-        # of sampled transactions.
-        # We recommend adjusting this value in production.
         profiles_sample_rate=1.0,
     )
-    print("Sentry initialized!")
 except Exception:
     pass
 
+@custom_sentry_trace
 @retry(stop=stop_after_attempt(5))
 def run_brownie(args):
     global current_try_count
