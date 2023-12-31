@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.10](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.9...v0.8.10) (2023-12-31)
+
+
+### Bug Fixes
+
+* enable sentry tracing ([53f9e22](https://github.com/yearn/yearn-multisig-ci-scripts/commit/53f9e224521720a96dcf64caf8d80edbbc92e5ea))
+
 ## [0.8.9](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.8...v0.8.9) (2023-12-31)
 
 
