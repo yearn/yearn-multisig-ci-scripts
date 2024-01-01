@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.13](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.12...v0.8.13) (2024-01-01)
+
+
+### Bug Fixes
+
+* sentry add spans ([a8a028a](https://github.com/yearn/yearn-multisig-ci-scripts/commit/a8a028a1eb728ab4f211bf59c236445813088ace))
+
 ## [0.8.12](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.11...v0.8.12) (2024-01-01)
 
 
