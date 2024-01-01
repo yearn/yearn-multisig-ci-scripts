@@ -53,6 +53,7 @@ gnosis_frontend_urls = {
 _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
 
 class DelegateSafe(ApeSafe):
+    @custom_sentry_trace
     def __init__(self, address, base_url=None, multisend=None):
         """
         Create an ApeSafe from an address or a ENS name and use a default connection.
@@ -149,7 +150,7 @@ class DelegateSafe(ApeSafe):
         
         return None
 
-
+    @custom_sentry_trace
     def sign_transaction(self, safe_tx: SafeTx, signer=None) -> SafeTx:
         if not self.is_ci:
             return super().sign_transaction(safe_tx, signer)

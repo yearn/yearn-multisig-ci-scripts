@@ -1,26 +1,17 @@
 from subprocess import Popen
 from tenacity import *
 import sys, time, os, signal, psutil
-from multisig_ci.sentry_wrapper import custom_sentry_trace
+from multisig_ci.sentry_wrapper import custom_sentry_trace, CustomSentryTransaction
 
 home_directory = os.environ.get("HOME")
 signal_file_path = os.path.join(home_directory, "alive.signal")
 nonce_file_path = os.path.join(home_directory, "nonce.txt")
 current_try_count = 0
 
-try:
-    import sentry_sdk
-    sentry_dsn = os.environ.get("SENTRY_DSN")
-    sentry_sdk.init(
-        dsn=sentry_dsn,
-        traces_sample_rate=1.0,
-        profiles_sample_rate=1.0,
-    )
-except Exception:
-    pass
 
 @custom_sentry_trace
 @retry(stop=stop_after_attempt(5))
+@custom_sentry_trace
 def run_brownie(args):
     global current_try_count
 
@@ -61,7 +52,7 @@ def run_brownie(args):
     os.remove(signal_file_path)
     exit(exit_code)
 
-
+@custom_sentry_trace
 def kill_process_by_cmdline(cmdline_arg_find):
     for proc in psutil.process_iter():
         for cmdline_arg in proc.cmdline():
@@ -69,7 +60,7 @@ def kill_process_by_cmdline(cmdline_arg_find):
                 pid = proc.pid
                 os.kill(int(pid), signal.SIGKILL)
 
-
+@custom_sentry_trace
 def kill_process_by_name(proc_name):
     for proc in psutil.process_iter():
         if proc_name == proc.name():
@@ -78,4 +69,5 @@ def kill_process_by_name(proc_name):
 
 
 if __name__ == "__main__":
-    run_brownie(sys.argv[1:])
+    with CustomSentryTransaction(op="run_brownie", name="RunBrownie"):
+        run_brownie(sys.argv[1:])

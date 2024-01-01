@@ -42,3 +42,20 @@ class CustomSentryTransaction:
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.tx is not None:
             self.tx.__exit__(exc_type, exc_val, exc_tb)
+
+class CustomSentrySpan:
+    def __init__(self, description):
+        self.description = description
+        self.span = None
+
+    def __enter__(self):
+        global SENTRY_IMPORTED
+        if SENTRY_IMPORTED:
+            self.span = sentry_sdk.start_span(description=self.description)
+            self.span.__enter__()
+
+        return self.span
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.span is not None:
+            self.span.__exit__(exc_type, exc_val, exc_tb)

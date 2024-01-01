@@ -1,5 +1,5 @@
 from multisig_ci.safes import safe
-from multisig_ci.sentry_wrapper import custom_sentry_trace, CustomSentryTransaction
+from multisig_ci.sentry_wrapper import custom_sentry_trace, CustomSentryTransaction, CustomSentrySpan
 
 @custom_sentry_trace
 def _tenderly_fork(safe, timeout_seconds):
@@ -23,27 +23,36 @@ def sign(nonce_arg = None, skip_preview = False, post_tx = False, tenderly_fork 
     global SENTRY_IMPORTED
     def _sign(func):
         def wrapper():
-            with CustomSentryTransaction(op="begin", name=func.__name__):
+            if safe.is_ci and safe.is_send:
+                op = "ci_send"
+            else:
+                op = "ci_dry_run"
+
+            with CustomSentryTransaction(op=op, name=func.__name__):
                 if tenderly_fork:
-                    with CustomSentryTransaction(op="tenderly_fork", name=func.__name__):
+                    with CustomSentrySpan(description="tenderly_fork"):
                         _tenderly_fork(safe, tenderly_timeout_seconds)
 
-                with CustomSentryTransaction(op="run_func", name=func.__name__):
+                with CustomSentrySpan(description="run_func"):
                     func()
                 
-                with CustomSentryTransaction(op="build_tx", name=func.__name__):
+                with CustomSentrySpan(description="build_tx"):
                     safe_tx = safe.multisend_from_receipts(safe_nonce=nonce)
 
                 if not skip_preview:
-                    with CustomSentryTransaction(op="preview_tx", name=func.__name__):
+                    with CustomSentrySpan(description="preview_tx"):
                         safe.preview(safe_tx, call_trace=False)
 
                 if not post_tx and not safe.is_ci:
                     print("dry-run finished, run again with @sign(post_tx = True) to sign and submit the tx.")
                 else:
-                    with CustomSentryTransaction(op="sign_tx", name=func.__name__):
+                    if safe.is_ci and not safe.is_send:
+                        print("CI dry-run enabled, set send to true to run to completion")
+                        return
+
+                    with CustomSentrySpan(description="sign_tx"):
                         safe.sign_transaction(safe_tx)
-                    with CustomSentryTransaction(op="post_tx", name=func.__name__):
+                    with CustomSentrySpan(description="post_tx"):
                         safe.post_transaction(safe_tx)
 
         return wrapper
