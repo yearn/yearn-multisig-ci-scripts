@@ -1,5 +1,5 @@
 from multisig_ci.safes import safe
-from multisig_ci.sentry_wrapper import custom_sentry_trace
+from multisig_ci.sentry_wrapper import custom_sentry_trace, CustomSentryTransaction
 
 @custom_sentry_trace
 def _tenderly_fork(safe, timeout_seconds):
@@ -20,20 +20,31 @@ def _tenderly_fork(safe, timeout_seconds):
 
 @custom_sentry_trace
 def sign(nonce_arg = None, skip_preview = False, post_tx = False, tenderly_fork = False, tenderly_timeout_seconds = 60):
+    global SENTRY_IMPORTED
     def _sign(func):
         def wrapper():
-            if tenderly_fork:
-                _tenderly_fork(safe, tenderly_timeout_seconds)
-            func()
-            safe_tx = safe.multisend_from_receipts(safe_nonce=nonce)
-            if not skip_preview:
-                safe.preview(safe_tx, call_trace=False)
+            with CustomSentryTransaction(op="begin", name=func.__name__):
+                if tenderly_fork:
+                    with CustomSentryTransaction(op="tenderly_fork", name=func.__name__):
+                        _tenderly_fork(safe, tenderly_timeout_seconds)
 
-            if not post_tx and not safe.is_ci:
-                print("dry-run finished, run again with @sign(post_tx = True) to sign and submit the tx.")
-            else:
-                safe.sign_transaction(safe_tx)
-                safe.post_transaction(safe_tx)
+                with CustomSentryTransaction(op="run_func", name=func.__name__):
+                    func()
+                
+                with CustomSentryTransaction(op="build_tx", name=func.__name__):
+                    safe_tx = safe.multisend_from_receipts(safe_nonce=nonce)
+
+                if not skip_preview:
+                    with CustomSentryTransaction(op="preview_tx", name=func.__name__):
+                        safe.preview(safe_tx, call_trace=False)
+
+                if not post_tx and not safe.is_ci:
+                    print("dry-run finished, run again with @sign(post_tx = True) to sign and submit the tx.")
+                else:
+                    with CustomSentryTransaction(op="sign_tx", name=func.__name__):
+                        safe.sign_transaction(safe_tx)
+                    with CustomSentryTransaction(op="post_tx", name=func.__name__):
+                        safe.post_transaction(safe_tx)
 
         return wrapper
 
