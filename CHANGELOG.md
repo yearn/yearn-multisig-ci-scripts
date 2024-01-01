@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.12](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.11...v0.8.12) (2024-01-01)
+
+
+### Bug Fixes
+
+* sentry add transactions ([64c7901](https://github.com/yearn/yearn-multisig-ci-scripts/commit/64c7901b175b9a5dac1b32e0d63d1f758d99d299))
+
 ## [0.8.11](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.10...v0.8.11) (2023-12-31)
 
 
