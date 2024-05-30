@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "multisig_ci"
-version = "0.8.13"
+version = "0.8.14"
 description = "Gnosis safe ci scripts."
 authors = ["kx9x <kx9x@protonmail.com>"]
 license = "AGPLv3"
@@ -9,13 +9,13 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
-safe-eth-py = "4.3.2"
-brownie_safe = "0.8.4"
+python = ">=3.10,<3.11"
+safe-eth-py = "6.0.0b30"
+brownie_safe = "0.9.0"
 tenacity = ">=8.0.1"
 psutil = ">=5.8.0"
 requests = ">=2.26.0"
-eth-brownie = "1.19.2"
+eth-brownie = "1.20.5"
 [tool.poetry.dev-dependencies]
 
 [build-system]
