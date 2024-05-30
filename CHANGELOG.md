@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.16](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.15...v0.8.16) (2024-05-30)
+
+
+### Bug Fixes
+
+* custom multisends ([0e36856](https://github.com/yearn/yearn-multisig-ci-scripts/commit/0e36856549bfa3e6d749d41fa25c4b5e5a7d90af))
+
 ## [0.8.15](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.14...v0.8.15) (2024-05-30)
 
 
