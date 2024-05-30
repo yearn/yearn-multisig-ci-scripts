@@ -24,11 +24,6 @@ def mine_override(timestamp: Optional[int] = None) -> None:
 monkeypatch = MonkeyPatch()
 monkeypatch.setattr(anvil, 'mine', mine_override)
 
-from brownie_safe import CUSTOM_MULTISENDS
-
-for e, v in CUSTOM_MULTISENDS.copy().items():
-    CUSTOM_MULTISENDS[e.value] = v
-
 # CI horribleness lurks below
 # If running in CI, let's override ApeSafe.post_transaction so
 # that it writes a file with the nonce. This is used to later tag
