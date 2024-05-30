@@ -4,7 +4,8 @@ from brownie_safe import BrownieSafe as ApeSafe
 from brownie_safe import ExecutionFailure
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
-from eth_abi import encode_abi
+from eth_abi import encode
+from eth_utils import keccak
 from typing import Optional, Union
 from brownie.network.account import LocalAccount
 from brownie.network.contract import _explorer_tokens
@@ -103,7 +104,7 @@ class DelegateSafe(ApeSafe):
             call_trace = False
 
         tx = copy(safe_tx)
-        safe = Contract.from_abi('Gnosis Safe', self.address, self.get_contract().abi)
+        safe = Contract.from_abi('Gnosis Safe', self.address, self.contract.abi)
         # Replace pending nonce with the subsequent nonce, this could change the safe_tx_hash
         tx.safe_nonce = safe.nonce()
         # Forge signatures from the needed amount of owners, skip the one which submits the tx
@@ -111,14 +112,18 @@ class DelegateSafe(ApeSafe):
         threshold = safe.getThreshold()
         sorted_owners = sorted(safe.getOwners(), key=lambda x: int(x, 16))
         owners = [accounts.at(owner, force=True) for owner in sorted_owners[:threshold]]
-        for owner in owners:
-            safe.approveHash(tx.safe_tx_hash, {'from': owner})
-
         # Signautres are encoded as [bytes32 r, bytes32 s, bytes8 v]
         # Pre-validated signatures are encoded as r=owner, s unused and v=1.
         # https://docs.gnosis.io/safe/docs/contracts_signatures/#pre-validated-signatures
-        tx.signatures = b''.join([encode_abi(['address', 'uint'], [str(owner), 0]) + b'\x01' for owner in owners])
-        payload = tx.w3_tx.buildTransaction({'gas': str(chain.block_gas_limit), 'maxFeePerGas': 100})
+        tx.signatures = b''.join([encode(['address', 'uint'], [str(owner), 0]) + b'\x01' for owner in owners])
+
+        # approvedHashes are in slot 8 and have type of mapping(address => mapping(bytes32 => uint256))
+        for owner in owners[:threshold]:
+            outer_key = keccak(encode(['address', 'uint'], [str(owner), 8]))
+            slot = int.from_bytes(keccak(tx.safe_tx_hash + outer_key), 'big')
+            self.set_storage(tx.safe_address, slot, 1)
+
+        payload = tx.w3_tx.build_transaction()
         receipt = owners[0].transfer(payload['to'], payload['value'], gas_limit=payload['gas'], data=payload['data'])
 
         if 'ExecutionSuccess' not in receipt.events:
