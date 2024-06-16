@@ -34,6 +34,7 @@ monkeypatch.setattr(anvil, 'mine', mine_override)
 DELEGATE_ADDRESS = os.environ.get("DELEGATE_ADDRESS")
 home_directory = os.environ.get("HOME")
 BASE_CHAIN_ID = 8453
+FANTOM_CHAIN_ID = 250
 
 gnosis_frontend_urls = {
     1: 'https://app.safe.global/transactions/queue?safe=eth:{0}',
@@ -182,8 +183,10 @@ def DelegateSafe(address, base_url=None, multisend=None):
     if not base_url and network.chain.id == BASE_CHAIN_ID:
         base_url = "https://safe-transaction-base.safe.global"
 
+    if not base_url and network.chain.id == FANTOM_CHAIN_ID:
+        base_url = "https://safe-txservice.fantom.network"
+
     safe = BrownieSafe(address, base_url, multisend)
-    safe.transaction_service.URL_BY_NETWORK[EthereumNetwork.FANTOM_OPERA] = "https://safe-txservice.fantom.network"
     safe.frontend_url = frontend_url
     return safe
 
