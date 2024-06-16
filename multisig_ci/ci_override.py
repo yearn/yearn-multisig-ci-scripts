@@ -180,9 +180,6 @@ def DelegateSafe(address, base_url=None, multisend=None):
     else:
         frontend_url = gnosis_frontend_urls[1]
 
-    if not base_url and network.chain.id == BASE_CHAIN_ID:
-        base_url = "https://safe-transaction-base.safe.global"
-
     if not base_url and network.chain.id == FANTOM_CHAIN_ID:
         base_url = "https://safe-txservice.fantom.network"
 
