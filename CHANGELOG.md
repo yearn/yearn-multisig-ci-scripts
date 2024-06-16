@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.18](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.17...v0.8.18) (2024-06-16)
+
+
+### Bug Fixes
+
+* allow fantom to work ([423ecfe](https://github.com/yearn/yearn-multisig-ci-scripts/commit/423ecfe824cadca4b3bdea0ba36b62d92630fe1b))
+
 ## [0.8.17](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.16...v0.8.17) (2024-06-16)
 
 
