@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.17](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.16...v0.8.17) (2024-06-16)
+
+
+### Bug Fixes
+
+* fix browniesafe override ([92769bf](https://github.com/yearn/yearn-multisig-ci-scripts/commit/92769bf4d59dbe9527806a96104025e69423ad36))
+
 ## [0.8.16](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.15...v0.8.16) (2024-05-30)
 
 
