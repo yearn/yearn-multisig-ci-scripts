@@ -5,6 +5,7 @@ from brownie_safe import ExecutionFailure, PATCHED_SAFE_VERSIONS
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
 from gnosis.safe.safe import SafeV111, SafeV120, SafeV130, SafeV141
+from gnosis.eth.ethereum_client import EthereumNetwork
 from eth_abi import encode
 from eth_utils import keccak
 from typing import Optional, Union
@@ -182,6 +183,7 @@ def DelegateSafe(address, base_url=None, multisend=None):
         base_url = "https://safe-transaction-base.safe.global"
 
     safe = BrownieSafe(address, base_url, multisend)
+    safe.transaction_service.URL_BY_NETWORK[EthereumNetwork.FANTOM_OPERA] = "https://safe-txservice.fantom.network"
     safe.frontend_url = frontend_url
     return safe
 
