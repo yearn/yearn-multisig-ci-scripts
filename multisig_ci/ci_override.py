@@ -1,9 +1,10 @@
 import os
 from copy import copy
-from brownie_safe import BrownieSafe as ApeSafe
-from brownie_safe import ExecutionFailure
+from brownie_safe import BrownieSafeBase, BrownieSafe
+from brownie_safe import ExecutionFailure, PATCHED_SAFE_VERSIONS
 from brownie import accounts, network, chain, Contract
 from gnosis.safe.safe_tx import SafeTx
+from gnosis.safe.safe import SafeV111, SafeV120, SafeV130, SafeV141
 from eth_abi import encode
 from eth_utils import keccak
 from typing import Optional, Union
@@ -25,7 +26,7 @@ monkeypatch = MonkeyPatch()
 monkeypatch.setattr(anvil, 'mine', mine_override)
 
 # CI horribleness lurks below
-# If running in CI, let's override ApeSafe.post_transaction so
+# If running in CI, let's override BrownieSafeBase.post_transaction so
 # that it writes a file with the nonce. This is used to later tag
 # the pull request with a label matching the nonce
 
@@ -48,21 +49,11 @@ gnosis_frontend_urls = {
 
 _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
 
-class DelegateSafe(ApeSafe):
+class DelegateSafeBase(BrownieSafeBase):
     @custom_sentry_trace
-    def __init__(self, address, base_url=None, multisend=None):
-        """
-        Create an ApeSafe from an address or a ENS name and use a default connection.
-        """
-        if network.chain.id in gnosis_frontend_urls:
-            self.frontend_url = gnosis_frontend_urls[network.chain.id]
-        else:
-            self.frontend_url = gnosis_frontend_urls[1]
-        
-        if not base_url and network.chain.id == BASE_CHAIN_ID:
-            base_url = "https://safe-transaction-base.safe.global"
+    def __init__(self, address, ethereum_client):
 
-        super().__init__(address, base_url=base_url, multisend=multisend)
+        super().__init__(address, ethereum_client)
 
     @property
     def is_ci(self):
@@ -160,6 +151,40 @@ class DelegateSafe(ApeSafe):
             exit(0)
         
         return super().sign_transaction(safe_tx, signer)
+
+class DelegateSafeV111(DelegateSafeBase, SafeV111):
+    pass
+
+class DelegateSafeV120(DelegateSafeBase, SafeV120):
+    pass
+
+class DelegateSafeV130(DelegateSafeBase, SafeV130):
+    pass
+
+class DelegateSafeV141(DelegateSafeBase, SafeV141):
+    pass
+
+PATCHED_SAFE_VERSIONS['1.1.1'] = DelegateSafeV111
+PATCHED_SAFE_VERSIONS['1.2.0'] = DelegateSafeV120
+PATCHED_SAFE_VERSIONS['1.3.0'] = DelegateSafeV130
+PATCHED_SAFE_VERSIONS['1.4.1'] = DelegateSafeV141
+
+def DelegateSafe(address, base_url=None, multisend=None):
+    """
+    Create an BrownieSafeBase from an address or a ENS name and use a default connection.
+    """
+    if network.chain.id in gnosis_frontend_urls:
+        frontend_url = gnosis_frontend_urls[network.chain.id]
+    else:
+        frontend_url = gnosis_frontend_urls[1]
+
+    if not base_url and network.chain.id == BASE_CHAIN_ID:
+        base_url = "https://safe-transaction-base.safe.global"
+
+    safe = BrownieSafe(address, base_url, multisend)
+    safe.frontend_url = frontend_url
+    return safe
+
 
 if os.environ.get("CI", "").lower() == "true":
     with open(os.path.join(home_directory, "alive.signal"), "w") as f:
