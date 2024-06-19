@@ -56,8 +56,8 @@ class DelegateSafeBase(BrownieSafeBase):
     def __init__(self, address, ethereum_client):
         if CONFIG.network_type != "development":
             acct = Account(address)
-            if acct not in self._accounts:
-                self._accounts.append(acct)
+            if acct not in accounts._accounts:
+                accounts._accounts.append(acct)
 
         super().__init__(address, ethereum_client)
 
