@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.21](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.20...v0.8.21) (2024-06-19)
+
+
+### Bug Fixes
+
+* bump to 0.8.21 ([59429cf](https://github.com/yearn/yearn-multisig-ci-scripts/commit/59429cfaa63e2306e3739530e40e1e04500deb7e))
+
 ## [0.8.20](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.19...v0.8.20) (2024-06-16)
 
 
