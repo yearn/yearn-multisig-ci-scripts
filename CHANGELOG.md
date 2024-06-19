@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.20](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.19...v0.8.20) (2024-06-16)
+
+
+### Bug Fixes
+
+* remove base hacks ([194f4db](https://github.com/yearn/yearn-multisig-ci-scripts/commit/194f4db4549e4455c14f2a811ebb24949ef697e2))
+
 ## [0.8.19](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.18...v0.8.19) (2024-06-16)
 
 
