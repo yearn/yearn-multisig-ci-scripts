@@ -9,7 +9,7 @@ from gnosis.eth.ethereum_client import EthereumNetwork
 from eth_abi import encode
 from eth_utils import keccak
 from typing import Optional, Union
-from brownie.network.account import LocalAccount
+from brownie.network.account import LocalAccount, Account
 from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
 from _pytest.monkeypatch import MonkeyPatch
@@ -54,6 +54,10 @@ _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
 class DelegateSafeBase(BrownieSafeBase):
     @custom_sentry_trace
     def __init__(self, address, ethereum_client):
+        if CONFIG.network_type != "development":
+            acct = Account(address)
+            if acct not in self._accounts:
+                self._accounts.append(acct)
 
         super().__init__(address, ethereum_client)
 
