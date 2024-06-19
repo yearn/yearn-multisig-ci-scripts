@@ -11,7 +11,6 @@ pip3 install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org
 prod
 ```
 export PATH=$PATH:$HOME/.poetry/bin
-
 poetry build
 poetry publish
 ```
