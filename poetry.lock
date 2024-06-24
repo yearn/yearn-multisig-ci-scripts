@@ -130,13 +130,13 @@ test = ["astroid (>=1,<2)", "astroid (>=2,<4)", "pytest"]
 
 [[package]]
 name = "async-timeout"
-version = "4.0.2"
+version = "4.0.3"
 description = "Timeout context manager for asyncio programs"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 files = [
-    {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
-    {file = "async_timeout-4.0.2-py3-none-any.whl", hash = "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"},
+    {file = "async-timeout-4.0.3.tar.gz", hash = "sha256:4640d96be84d82d02ed59ea2b7105a0f7b33abe8703703cd0ab0bf87c427522f"},
+    {file = "async_timeout-4.0.3-py3-none-any.whl", hash = "sha256:7405140ff1230c310e51dc27b3145b9092d659ce68ff733fb0cefe3ee42be028"},
 ]
 
 [[package]]
@@ -654,16 +654,17 @@ files = [
 
 [[package]]
 name = "construct"
-version = "2.10.68"
+version = "2.10.70"
 description = "A powerful declarative symmetric parser/builder for binary data"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "construct-2.10.68.tar.gz", hash = "sha256:7b2a3fd8e5f597a5aa1d614c3bd516fa065db01704c72a1efaaeec6ef23d8b45"},
+    {file = "construct-2.10.70-py3-none-any.whl", hash = "sha256:c80be81ef595a1a821ec69dc16099550ed22197615f4320b57cc9ce2a672cb30"},
+    {file = "construct-2.10.70.tar.gz", hash = "sha256:4d2472f9684731e58cc9c56c463be63baa1447d674e0d66aeb5627b22f512c29"},
 ]
 
 [package.extras]
-extras = ["arrow", "cloudpickle", "enum34", "lz4", "numpy", "ruamel.yaml"]
+extras = ["arrow", "cloudpickle", "cryptography", "lz4", "numpy", "ruamel.yaml"]
 
 [[package]]
 name = "construct-classes"
@@ -811,13 +812,13 @@ files = [
 
 [[package]]
 name = "ecdsa"
-version = "0.18.0"
+version = "0.19.0"
 description = "ECDSA cryptographic signature library (pure python)"
 optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.6"
 files = [
-    {file = "ecdsa-0.18.0-py2.py3-none-any.whl", hash = "sha256:80600258e7ed2f16b9aa1d7c295bd70194109ad5a30fdee0eaeefef1d4c559dd"},
-    {file = "ecdsa-0.18.0.tar.gz", hash = "sha256:190348041559e21b22a1d65cee485282ca11a6f81d503fddb84d5017e9ed1e49"},
+    {file = "ecdsa-0.19.0-py2.py3-none-any.whl", hash = "sha256:2cea9b88407fdac7bbeca0833b189e4c9c53f2ef1e1eaa29f6224dbc809b707a"},
+    {file = "ecdsa-0.19.0.tar.gz", hash = "sha256:60eaad1199659900dd0af521ed462b793bbdf867432b3948e87416ae4caf6bf8"},
 ]
 
 [package.dependencies]
@@ -924,13 +925,13 @@ test = ["hypothesis (>=3.31.2)", "pytest (>=7.0.0)", "pytest-xdist (>=2.4.0)"]
 
 [[package]]
 name = "eth-brownie"
-version = "1.20.5"
+version = "1.20.6"
 description = "A Python framework for Ethereum smart contract deployment, testing and interaction."
 optional = false
 python-versions = "<4,>=3.10"
 files = [
-    {file = "eth_brownie-1.20.5-py3-none-any.whl", hash = "sha256:606cfc99062e045230a7d500ae51987163f08cc0b9ee05f0be433a6e2734ec88"},
-    {file = "eth_brownie-1.20.5.tar.gz", hash = "sha256:cb3f2ebb33f0cb98d8362a0d749d61fc4f4852e397bc1579539da2aa6e82ed3d"},
+    {file = "eth_brownie-1.20.6-py3-none-any.whl", hash = "sha256:dffffcb29cef4a9c5a2e8a0c6ea57ef6a10a0952687cf49e61860bbe83140f33"},
+    {file = "eth_brownie-1.20.6.tar.gz", hash = "sha256:9705e2575b7cc988130956228a98c237e1ba2c682d4bc722b7097f0129b721d2"},
 ]
 
 [package.dependencies]
@@ -1429,15 +1430,15 @@ files = [
 
 [[package]]
 name = "libusb1"
-version = "3.0.0"
+version = "3.1.0"
 description = "Pure-python wrapper for libusb-1.0"
 optional = false
 python-versions = "*"
 files = [
-    {file = "libusb1-3.0.0-py3-none-any.whl", hash = "sha256:0e652b04cbe85ec8e74f9ee82b49f861fb14b5320ae51399387ad2601ccc0500"},
-    {file = "libusb1-3.0.0-py3-none-win32.whl", hash = "sha256:083f75e5d15cb5e2159e64c308c5317284eae926a820d6dce53a9505d18be3b2"},
-    {file = "libusb1-3.0.0-py3-none-win_amd64.whl", hash = "sha256:6f6bb010632ada35c661d17a65e135077beef0fbb2434d5ffdb3a4a911fd9490"},
-    {file = "libusb1-3.0.0.tar.gz", hash = "sha256:5792a9defee40f15d330a40d9b1800545c32e47ba7fc66b6f28f133c9fcc8538"},
+    {file = "libusb1-3.1.0-py3-none-any.whl", hash = "sha256:9d9f16e2c199cab91f48ead585d3f5ec7e8e4be428a25ddfed22abf786fa9b3a"},
+    {file = "libusb1-3.1.0-py3-none-win32.whl", hash = "sha256:bc7874302565721f443a27d8182fcc7152e5b560523f12f1377b130f473e4a0c"},
+    {file = "libusb1-3.1.0-py3-none-win_amd64.whl", hash = "sha256:77a06ecfb3d002d7c2ce369e28d0138b292fe8db8a3d102b73fda231a716dd35"},
+    {file = "libusb1-3.1.0.tar.gz", hash = "sha256:4ee9b0a55f8bd0b3ea7017ae919a6c1f439af742c4a4b04543c5fd7af89b828c"},
 ]
 
 [[package]]
@@ -1536,13 +1537,13 @@ test = ["pytest"]
 
 [[package]]
 name = "mnemonic"
-version = "0.20"
+version = "0.21"
 description = "Implementation of Bitcoin BIP-0039"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.8.1"
 files = [
-    {file = "mnemonic-0.20-py3-none-any.whl", hash = "sha256:acd2168872d0379e7a10873bb3e12bf6c91b35de758135c4fbd1015ef18fafc5"},
-    {file = "mnemonic-0.20.tar.gz", hash = "sha256:7c6fb5639d779388027a77944680aee4870f0fcd09b1e42a5525ee2ce4c625f6"},
+    {file = "mnemonic-0.21-py3-none-any.whl", hash = "sha256:72dc9de16ec5ef47287237b9b6943da11647a03fe7cf1f139fc3d7c4a7439288"},
+    {file = "mnemonic-0.21.tar.gz", hash = "sha256:1fe496356820984f45559b1540c80ff10de448368929b9c60a2b55744cc88acf"},
 ]
 
 [[package]]
@@ -2442,17 +2443,18 @@ files = [
 
 [[package]]
 name = "tenacity"
-version = "8.2.3"
+version = "8.4.1"
 description = "Retry code until it succeeds"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "tenacity-8.2.3-py3-none-any.whl", hash = "sha256:ce510e327a630c9e1beaf17d42e6ffacc88185044ad85cf74c0a8887c6a0f88c"},
-    {file = "tenacity-8.2.3.tar.gz", hash = "sha256:5398ef0d78e63f40007c1fb4c0bff96e1911394d2fa8d194f77619c05ff6cc8a"},
+    {file = "tenacity-8.4.1-py3-none-any.whl", hash = "sha256:28522e692eda3e1b8f5e99c51464efcc0b9fc86933da92415168bc1c4e2308fa"},
+    {file = "tenacity-8.4.1.tar.gz", hash = "sha256:54b1412b878ddf7e1f1577cd49527bad8cdef32421bd599beac0c6c3f10582fd"},
 ]
 
 [package.extras]
-doc = ["reno", "sphinx", "tornado (>=4.5)"]
+doc = ["reno", "sphinx"]
+test = ["pytest", "tornado (>=4.5)", "typeguard"]
 
 [[package]]
 name = "toml"
@@ -2968,4 +2970,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "d1bd63e08c3c7c310589d22701e2eb862f421501d8b20d9344838749d9f6855f"
+content-hash = "6c4c3912d7d46910a2e98c7404adb27499338701249179d3a9acb908a05ebb83"
