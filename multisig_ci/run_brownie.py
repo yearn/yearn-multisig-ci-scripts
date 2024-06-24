@@ -16,7 +16,6 @@ def run_brownie(args):
     global current_try_count
 
     # Kill processes to make sure we start clean
-    kill_process_by_cmdline("ganache-cli")
     kill_process_by_name("brownie")
     kill_process_by_cmdline("anvil")
 
@@ -33,17 +32,15 @@ def run_brownie(args):
 
     p = Popen(args)
 
-    # sleep 10, 20, 30, 40, 50, or 60 seconds based on retries
-    sleep_time = 10 + min(current_try_count * 10, 50)
+    sleep_time = 3 + min(current_try_count * 3, 57)
     print(f"waiting for alive signal, sleeping for {sleep_time} seconds")
     time.sleep(sleep_time)
 
     current_try_count += 1
 
     if not os.path.exists(signal_file_path):
-        print(f"alive signal not found, killing brownie, ganache, and anvil. queuing try #{current_try_count}")
+        print(f"alive signal not found, killing brownie and anvil. queuing try #{current_try_count}")
         p.terminate()
-        kill_process_by_cmdline("ganache-cli")
         kill_process_by_cmdline("anvil")
         raise Exception()
 
