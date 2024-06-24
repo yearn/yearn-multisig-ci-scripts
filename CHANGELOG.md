@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.24](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.23...v0.8.24) (2024-06-24)
+
+
+### Bug Fixes
+
+* allow higher version of brownie ([08e8cff](https://github.com/yearn/yearn-multisig-ci-scripts/commit/08e8cffe6bf4f798234d49194738632b4f280045))
+
 ## [0.8.23](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.22...v0.8.23) (2024-06-24)
 
 
