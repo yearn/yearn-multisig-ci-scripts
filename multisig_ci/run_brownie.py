@@ -10,7 +10,7 @@ current_try_count = 0
 
 
 @custom_sentry_trace
-@retry(stop=stop_after_attempt(5))
+@retry(stop=stop_after_attempt(3))
 @custom_sentry_trace
 def run_brownie(args):
     global current_try_count
@@ -32,7 +32,7 @@ def run_brownie(args):
 
     p = Popen(args)
 
-    sleep_time = 3 + min(current_try_count * 3, 57)
+    sleep_time = 10 + min(current_try_count * 10, 60)
     print(f"waiting for alive signal, sleeping for {sleep_time} seconds")
     time.sleep(sleep_time)
 
