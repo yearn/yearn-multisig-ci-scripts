@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.23](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.22...v0.8.23) (2024-06-24)
+
+
+### Bug Fixes
+
+* adjust retry sleep ([47272c8](https://github.com/yearn/yearn-multisig-ci-scripts/commit/47272c82187e4e280f418f36f30b9e0f3a77b41b))
+* gas limit ([85983c3](https://github.com/yearn/yearn-multisig-ci-scripts/commit/85983c3dd8181eea223d0c1460907afa49c173a1))
+
 ## [0.8.22](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.21...v0.8.22) (2024-06-19)
 
 
