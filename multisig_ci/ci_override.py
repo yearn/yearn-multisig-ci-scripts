@@ -115,7 +115,7 @@ class DelegateSafeBase(BrownieSafeBase):
             slot = int.from_bytes(keccak(tx.safe_tx_hash + outer_key), 'big')
             self.set_storage(tx.safe_address, slot, 1)
 
-        payload = tx.w3_tx.build_transaction()
+        payload = tx.w3_tx.build_transaction({'gas': str(chain.block_gas_limit), 'maxFeePerGas': 100})
         receipt = owners[0].transfer(payload['to'], payload['value'], gas_limit=payload['gas'], data=payload['data'])
 
         if 'ExecutionSuccess' not in receipt.events:
