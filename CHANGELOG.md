@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.26](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.25...v0.8.26) (2024-08-20)
+
+
+### Bug Fixes
+
+* use alternative default multisig for optimism and base ([9a6dfdb](https://github.com/yearn/yearn-multisig-ci-scripts/commit/9a6dfdb1730d3ad2de31b614af472962df7dbd11))
+
 ## [0.8.25](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.24...v0.8.25) (2024-06-24)
 
 
