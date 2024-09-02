@@ -36,7 +36,7 @@ home_directory = os.environ.get("HOME")
 BASE_CHAIN_ID = 8453
 OPTIMISM_CHAIN_ID = 10
 FANTOM_CHAIN_ID = 250
-ALT_DEFAULT_MULTISEND = "0x998739BFdAAdde7C933B942a68053933098f9EDa"
+ALT_DEFAULT_MULTISEND = "0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B"
 
 gnosis_frontend_urls = {
     1: 'https://app.safe.global/transactions/queue?safe=eth:{0}',
