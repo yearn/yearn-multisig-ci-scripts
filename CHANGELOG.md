@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.27](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.26...v0.8.27) (2024-09-02)
+
+
+### Bug Fixes
+
+* multisend address on base and optimism ([85b3f3c](https://github.com/yearn/yearn-multisig-ci-scripts/commit/85b3f3c9d315be8a945addd39f011ff81003f9df))
+
 ## [0.8.26](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.25...v0.8.26) (2024-08-20)
 
 
