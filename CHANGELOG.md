@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.30](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.29...v0.8.30) (2025-02-20)
+
+
+### Bug Fixes
+
+* bump python ([d918c0f](https://github.com/yearn/yearn-multisig-ci-scripts/commit/d918c0f0842f2992d30e67b37feaa03759d76172))
+
 ## [0.8.29](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.28...v0.8.29) (2025-02-20)
 
 
