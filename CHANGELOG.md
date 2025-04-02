@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.32](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.31...v0.8.32) (2025-04-02)
+
+
+### Bug Fixes
+
+* tenderly vnet ([c7b3537](https://github.com/yearn/yearn-multisig-ci-scripts/commit/c7b35376095f704818668f3498c5b4a9f6a1ae4f))
+
 ## [0.8.31](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.30...v0.8.31) (2025-02-20)
 
 
