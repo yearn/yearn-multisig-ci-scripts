@@ -7,16 +7,16 @@ def _tenderly_fork(safe, timeout_seconds):
    import brownie
    from brownie import chain
 
-   fork_base_url = "https://simulate.yexporter.io/fork"
-   payload = {"network_id": str(chain.id)}
-   resp = requests.post(fork_base_url, headers={}, json=payload)
-   fork_id = resp.json()["simulation_fork"]["id"]
-   fork_rpc_url = f"https://rpc.tenderly.co/fork/{fork_id}"
+   fork_rpc_url_provider = "https://fork.ysim.xyz/create"
+   payload = {"chain_id": str(chain.id)}
+   resp = requests.post(fork_rpc_url_provider, headers={}, json=payload).json()
+   fork_id = resp["vnet_id"]
+   fork_rpc_url = resp["rpc_url"]
    print(fork_rpc_url)
    tenderly_provider = brownie.web3.HTTPProvider(fork_rpc_url, {"timeout": timeout_seconds})
    brownie.web3.provider = tenderly_provider
    safe.w3.provider = tenderly_provider
-   print(f"https://dashboard.tenderly.co/yearn/yearn-web/fork/{fork_id}")
+   print(f"https://dashboard.tenderly.co/yearn/robowoofy/testnet/{fork_id}")
 
 @custom_sentry_trace
 def sign(nonce_arg = None, skip_preview = False, post_tx = False, tenderly_fork = False, tenderly_timeout_seconds = 60):
