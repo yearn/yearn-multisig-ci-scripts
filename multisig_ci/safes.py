@@ -21,6 +21,8 @@ elif network.chain.id == 5:
     address = os.getenv("GOR_SAFE_ADDRESS")
 elif network.chain.id == 8453:
     address = os.getenv("BASE_SAFE_ADDRESS")
+elif network.chain.id == 146:
+    address = os.getenv("SONIC_SAFE_ADDRESS")
 else:
     address = os.getenv("ETH_SAFE_ADDRESS")
 

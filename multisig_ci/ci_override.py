@@ -48,6 +48,7 @@ gnosis_frontend_urls = {
     137: 'https://app.safe.global/transactions/queue?safe=matic:{0}',
     250: 'https://safe.fantom.network/transactions/queue?safe=ftm:{0}',
     8453: 'https://app.safe.global/transactions/queue?safe=base:{0}',
+    146: 'https://app.safe.global/transactions/queue?safe=sonic:{0}',
     42161: 'https://app.safe.global/transactions/queue?safe=arb1:{0}',
 }
 
