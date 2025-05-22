@@ -50,6 +50,7 @@ gnosis_frontend_urls = {
     8453: 'https://app.safe.global/transactions/queue?safe=base:{0}',
     146: 'https://app.safe.global/transactions/queue?safe=sonic:{0}',
     42161: 'https://app.safe.global/transactions/queue?safe=arb1:{0}',
+    80094: 'https://app.safe.global/transactions/queue?safe=berachain:{0}',
 }
 
 _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
