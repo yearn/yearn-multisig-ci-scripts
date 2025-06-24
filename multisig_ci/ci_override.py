@@ -36,6 +36,8 @@ home_directory = os.environ.get("HOME")
 BASE_CHAIN_ID = 8453
 OPTIMISM_CHAIN_ID = 10
 FANTOM_CHAIN_ID = 250
+BERACHAIN_CHAIN_ID = 80094
+KATANA_CHAIN_ID = 747474
 ALT_DEFAULT_MULTISEND = "0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B"
 
 gnosis_frontend_urls = {
@@ -51,7 +53,7 @@ gnosis_frontend_urls = {
     146: 'https://app.safe.global/transactions/queue?safe=sonic:{0}',
     42161: 'https://app.safe.global/transactions/queue?safe=arb1:{0}',
     80094: 'https://app.safe.global/transactions/queue?safe=berachain:{0}',
-    747474: 'https://safe.katana.network/transactions/queue?safe=katana:{0}',
+    747474: 'https://app.safe.global/transactions/queue?safe=katana:{0}',
 }
 
 _explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
@@ -189,8 +191,13 @@ def DelegateSafe(address, base_url=None, multisend=None):
     else:
         frontend_url = gnosis_frontend_urls[1]
 
-    if not base_url and network.chain.id == FANTOM_CHAIN_ID:
-        base_url = "https://safe-txservice.fantom.network"
+    if not base_url:
+        if network.chain.id == FANTOM_CHAIN_ID:
+            base_url = "https://safe-txservice.fantom.network"
+        elif network.chain.id == BERACHAIN_CHAIN_ID:
+            base_url = "https://safe-transaction-berachain.safe.global"
+        elif network.chain.id == KATANA_CHAIN_ID:
+            base_url = "https://safe-transaction-katana.safe.global"
 
     if not multisend and (network.chain.id == OPTIMISM_CHAIN_ID or network.chain.id == BASE_CHAIN_ID):
         multisend = ALT_DEFAULT_MULTISEND
