@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.0](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.32...v0.9.0) (2025-06-24)
+
+
+### Features
+
+* add sonic support ([ad6abae](https://github.com/yearn/yearn-multisig-ci-scripts/commit/ad6abae4b40b805f7568fcc37d2873638211f543))
+
+
+### Bug Fixes
+
+* force release ([1cea8fd](https://github.com/yearn/yearn-multisig-ci-scripts/commit/1cea8fd5e11d6112147ec930ee1fe0ff5f2d2623))
+
 ## [0.8.32](https://github.com/yearn/yearn-multisig-ci-scripts/compare/v0.8.31...v0.8.32) (2025-04-02)
 
 
