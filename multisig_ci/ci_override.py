@@ -10,7 +10,6 @@ from eth_abi import encode
 from eth_utils import keccak
 from typing import Optional, Union
 from brownie.network.account import LocalAccount, Account
-from brownie.network.contract import _explorer_tokens
 from brownie._config import CONFIG
 from _pytest.monkeypatch import MonkeyPatch
 from brownie.network.rpc import anvil 
@@ -56,7 +55,6 @@ gnosis_frontend_urls = {
     747474: 'https://app.safe.global/transactions/queue?safe=katana:{0}',
 }
 
-_explorer_tokens['basescan'] = 'BASESCAN_TOKEN'
 
 class DelegateSafeBase(BrownieSafeBase):
     @custom_sentry_trace
