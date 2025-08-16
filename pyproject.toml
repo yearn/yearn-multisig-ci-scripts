@@ -10,7 +10,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
-safe-eth-py = ">=7.0.0,<8"
+safe-eth-py = ">=6.0.0,<7"
+eth-account = "<0.6.0"
 brownie_safe = { git = "https://github.com/wavey0x/brownie-safe.git", branch = "deps" }
 tenacity = ">=8.0.1"
 psutil = ">=5.8.0"
