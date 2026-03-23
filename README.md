@@ -15,3 +15,10 @@ export PATH=$PATH:$HOME/.poetry/bin
 poetry build
 poetry publish
 ```
+
+safe transaction service auth
+```
+export SAFE_AUTH_TOKEN=your_safe_api_token
+```
+
+`SAFE_TRANSACTION_SERVICE_API_KEY` is also supported for compatibility with Safe's API key naming.
