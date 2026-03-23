@@ -3,9 +3,8 @@ from copy import copy
 from brownie_safe import BrownieSafeBase, BrownieSafe
 from brownie_safe import ExecutionFailure, PATCHED_SAFE_VERSIONS
 from brownie import accounts, network, chain, Contract
-from gnosis.safe.safe_tx import SafeTx
-from gnosis.safe.safe import SafeV111, SafeV120, SafeV130, SafeV141
-from gnosis.eth.ethereum_client import EthereumNetwork
+from safe_eth.safe.safe_tx import SafeTx
+from safe_eth.safe.safe import SafeV111, SafeV120, SafeV130, SafeV141
 from eth_abi import encode
 from eth_utils import keccak
 from typing import Optional, Union
@@ -202,7 +201,8 @@ def DelegateSafe(address, base_url=None, multisend=None):
     if not multisend and (network.chain.id == OPTIMISM_CHAIN_ID or network.chain.id == BASE_CHAIN_ID):
         multisend = ALT_DEFAULT_MULTISEND
 
-    safe = BrownieSafe(address, base_url, multisend)
+    auth_token = os.environ.get("SAFE_AUTH_TOKEN") or os.environ.get("SAFE_TRANSACTION_SERVICE_API_KEY")
+    safe = BrownieSafe(address, base_url, multisend, auth_token=auth_token)
     safe.frontend_url = frontend_url
     return safe
 
