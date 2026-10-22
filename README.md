@@ -3,6 +3,14 @@ Tools for multisig CI
 
 dev
 ```
+poetry install
+# eth-brownie pins certifi/aiohttp/urllib3 exactly, so poetry.lock can't move them.
+# Override inside the poetry env (pip will warn about brownie's pins; that's expected):
+poetry run pip install -U "certifi>=2026.10.19" "aiohttp>=3.14.4" "urllib3>=2.8.0"
+```
+
+publish to testpypi
+```
 export PATH=$PATH:$HOME/.poetry/bin
 poetry build
 poetry publish -r testpypi
